@@ -1,0 +1,10 @@
+.App {
+    text-align: center;
+    width: 100%;
+    min-height: 100vh;
+    display:block;
+    overflow:auto;
+    height: 100%;
+    padding: 15px 0;
+  }
+  
