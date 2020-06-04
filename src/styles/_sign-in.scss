@@ -1,0 +1,36 @@
+//=========================================================
+//  SignIn
+//---------------------------------------------------------
+
+.sign-in {
+  margin-top: 90px;
+  max-width: 300px;
+
+  &__actions {
+    margin: 25px 40% 0 40%;
+    li {
+      float: left;
+      list-style: none;
+      width: 23%;
+
+      text-align: center;
+      
+      a {
+         cursor: pointer;
+      }
+    }
+  }
+}
+
+.sign-up {
+  &__actions {
+    a{
+      color: #edeffd;
+      padding-right: 5px;
+    }
+    p {
+      text-align: center;
+    }
+  }
+}
+
