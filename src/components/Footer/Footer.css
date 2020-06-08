@@ -1,0 +1,80 @@
+.Left{
+    float: left;
+    width: 25%;
+    text-align: left;
+    padding-left:5%; 
+    padding-top: 15px;
+    height: 250px;
+}
+
+.Right{
+    float: right;
+    width: 25%;
+    text-align: left;
+    padding-right:5%; 
+    padding-top: 15px;
+    height: 250px;
+}
+
+.Bottom{
+    width: 100%;
+    text-align: center;
+    /* margin-top: 20px; */
+    margin-bottom: 15px;
+}
+
+.LiBlock{
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+
+.Left h4, .Right h4, .Bottom h4{
+    color: #eee;
+    font-size: 15px;
+}
+
+.Left h3, .Right h3, .Bottom h3{
+    text-align: center;
+    color: #eee;
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+.Left a{
+    color: #eee;
+    font-size: 15px;
+}
+
+Footer span {
+	color: #eee;
+	display: block;
+	float: left;
+	height: 120px;
+	line-height: 20px;
+	text-align: center;
+	width: 30px;
+}
+
+.SP2, .SP3{
+    height: 20px;
+}
+
+.HBlock{
+    padding-bottom: 5px;
+}
+
+.Cen {
+    text-align: center ;
+    padding-bottom: 10px;
+}
+
+.footer{
+    position: absolute;
+    left: 0;
+    /* bottom: 0; */
+    width: 100%;
+    background-color: #423a3d;
+    text-align: center;
+}

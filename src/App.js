@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { IconContext } from "react-icons";
 
 // import './App.css';
+import './App.scss';
 import './styles/core.scss';
 
 import Main from './containers/Main/Main';

@@ -1,10 +1,5 @@
-.ints{
+/* .ints{
     width: 45%;
-    float: left;
-}
-
-.districts{
-    width: 55%;
     float: left;
 }
 
@@ -18,14 +13,33 @@
 
 .bg::after {
     display: block;
+} */
+
+.HLeft{
+    float: left;
+    width: 50%;
+    text-align: center;
+    /* padding-left:5%; 
+    padding-top: 15px; */
+    height: 250px;
 }
 
-@media (max-width: 519px) {
-    .Map{
-        display: none;
-    }
+.HRight{
+    float: right;
+    width: 25%;
+    text-align: center;
+    /* padding-right:5%; 
+    padding-top: 15px; */
+    height: 250px;
 }
 
+.Home {
+    margin: 0 auto;
+    min-height: 50vh;
+}
+
+
+/* 
 @media (min-width: 520px) {
     .ints{
         width: 30%;
@@ -53,4 +67,4 @@
         clear: both;
         display: table;
     }
-}
+} */

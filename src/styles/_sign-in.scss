@@ -7,7 +7,7 @@
   max-width: 300px;
 
   &__actions {
-    margin: 25px 40% 0 40%;
+    margin: 25px 40% 0 42%;
     li {
       float: left;
       list-style: none;
@@ -24,8 +24,9 @@
 
 .sign-up {
   &__actions {
+    margin: 0 40% 0 41%;
     a{
-      color: #edeffd;
+      color: #757981;
       padding-right: 5px;
     }
     p {

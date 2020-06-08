@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import classes from './Main.css';
-// import Layout from '../../hoc/Layout/Layout';
+import './Main.css';
+import Layout from '../../hoc/Layout/Layout';
 // import Posts from '../../containers/PostSection/Posts/Posts';
 // import NewPost from '../../containers/PostSection/NewPost/NewPost';
 // import FullPost from '../../containers/PostSection/FullPost/FullPost';
@@ -11,7 +11,7 @@ import Login from '../../containers/Auth/Login';
 import Signup from '../../containers/Auth/Signup';
 import HomePage from '../../containers/HomePage/HomePage';
 // import Logout from '../../containers/Auth/Logout';
-// import Profile from '../../containers/Profile/Profile';
+import Profile from '../../containers/Profile/Profile';
 // import User from '../../containers/Profile/User';
 // import Accounts from '../PHIControls/Accounts';
 // import DistrictPosts from '../PHIControls/DistrictPosts';
@@ -29,7 +29,8 @@ class Main extends Component {
             <Switch>
                 <Route path="/" exact component={HomePage} />
                 <Route path="/login" exact component={Login} />                        
-                <Route path="/register" exact component={Signup} />                                                
+                <Route path="/register" exact component={Signup} />  
+                <Route path="/dashboard" exact component={Profile} />                                                                  
                 {/* <Route path="/posts/:district" exact component={Posts} />                        
                 <Route path="/post/user/:pid" exact component={User} />
                 <Route path="/posts/:district/:id" exact component={FullPost} /> */}
@@ -58,9 +59,9 @@ class Main extends Component {
 
         return (
             <div className="Main">
-                {/* <Layout> */}
+                <Layout>
                     {routes}
-                {/* </Layout> */}
+                </Layout>
             </div>
         );
     }

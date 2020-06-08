@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import bcrypt from 'bcryptjs';
 
 // import Input from '../../components/UI/Input/Input';
 // import Button from '../../components/UI/Button/Button';
 // import Spinner from '../../components/UI/Spinner/smallSpinner';
-import classes from './Auth.css';
+import './Auth.css';
 import * as actions from '../../store/actions/index';
 import { updateObject, checkValidity } from '../../shared/utility';
 import Aux from '../../hoc/Auxiliary/Auxiliary'
@@ -87,9 +88,12 @@ class Signup extends Component {
 
     submitHandler = ( event ) => {
         event.preventDefault();
+        var salt = bcrypt.genSaltSync(10);
+        var hash = bcrypt.hashSync( this.state.controls.Password.value, salt);
+
         const data = {
             Email: this.state.controls.Email.value,
-            Password: this.state.controls.Password.value,
+            Password: hash,
             Username: this.state.controls.Username.value,
         }
         this.props.onAuth( data, this.state.isSignup );
@@ -113,10 +117,10 @@ class Signup extends Component {
                                 <input
                                     autoFocus
                                     maxLength="25"
-                                    onChange={( event ) => this.inputChangedHandler( event, "Email" )}
+                                    onChange={( event ) => this.inputChangedHandler( event, "Username" )}
                                     placeholder="Username"
                                     type="text"
-                                    value={this.state.controls.Email.value}
+                                    value={this.state.controls.Username.value}
                                     required
                                 />
                                 <span><FontAwesomeIcon icon={faEnvelope}/></span>
@@ -166,13 +170,13 @@ class Signup extends Component {
         }
 
         return (
-            <div className={classes.Page}>
-                <div className={classes.Signup}>
+            <div className="Page">
+                <div>
                     {redirect}
                     <form onSubmit={this.submitHandler}>
                         {form}
                         {/* <Button btnType="SuccessRe" disabled={!this.state.formIsValid} >Signup</Button> */}
-                        <div className={classes.Extras}>
+                        <div className="Extras">
                             {loadSpinner}
                             {errorMessage}
                         </div>

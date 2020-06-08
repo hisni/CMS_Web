@@ -63,7 +63,7 @@ export const authSignIn = (email, password) => {
             returnSecureToken: true
         };
         
-        let url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=APIKEY';
+        let url = 'http://localhost:3001/users/signup';
         var dbURL = '';
 
         axios.post(url, authData)
@@ -89,27 +89,29 @@ export const authSignUp = ( data ) => {
         const authData = {
             email: data.Email,
             password: data.Password,
-            displayName: data.Username,
-            returnSecureToken: true
+            name: data.Username,
+            // returnSecureToken: true
         };
 
-        const dbData = {
-            Email: data.Email,
-            Username: data.Username,
-        };
+        // const dbData = {
+        //     Email: data.Email,
+        //     Username: data.Username,
+        // };
 
-        console.log(dbData);
-        const URL = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=APIKEY';
-        var dbURL = '';
+        console.log(authData);
+        let url = 'http://localhost:3000/users/signup';
+        // var dbURL = '';
 
-        axios.post(URL, authData)
+        axios.post(url,authData)
         .then(response => {
-            dbURL = 'https://co321project-e273b.firebaseio.com/webUsers/'+response.data.localId+'.json'; 
-            dispatch(storeSignupData( dbURL, dbData ));
+            // dbURL = 'https://co321project-e273b.firebaseio.com/webUsers/'+response.data.localId+'.json'; 
+            // dispatch(storeSignupData( dbURL, dbData ));
+            console.log(response);
     
         })
         .catch(err => {
-            dispatch(authFail(err.response.data.error));
+            console.log(err);
+            // dispatch(authFail(err.response.data.error));
         });
     };
 };

@@ -5,13 +5,14 @@ import { Redirect } from 'react-router-dom';
 // import Input from '../../components/UI/Input/Input';
 // import Button from '../../components/UI/Button/Button';
 // import Spinner from '../../components/UI/Spinner/smallSpinner';
-import classes from './Auth.css';
+import './Auth.css';
 import * as actions from '../../store/actions/index';
 import { updateObject, checkValidity } from '../../shared/utility';
 import Aux from '../../hoc/Auxiliary/Auxiliary'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faLock, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { SocialMediaIconsReact } from 'social-media-icons-react';
+import bcrypt from 'bcryptjs';
 
 class Login extends Component {
     state = {
@@ -74,7 +75,11 @@ class Login extends Component {
 
     submitHandler = ( event ) => {
         event.preventDefault();
-        this.props.onAuth( this.state.controls.Email.value, this.state.controls.Password.value );
+
+        var salt = bcrypt.genSaltSync(10);
+        var hash = bcrypt.hashSync( this.state.controls.Password.value, salt);
+
+        this.props.onAuth( this.state.controls.Email.value, hash );
     }
 
     render () {
@@ -122,10 +127,10 @@ class Login extends Component {
 
                     <div className="sign-in__actions">
                         <ul>
-                            <li><SocialMediaIconsReact icon="github" iconColor="#2b161e" backgroundColor="#929292" iconSize="8"/></li>
-                            <li><SocialMediaIconsReact icon="googleplus" iconColor="#2b161e" backgroundColor="#929292" iconSize="8" /></li>
-                            <li><SocialMediaIconsReact icon="facebook" iconColor="#2b161e" backgroundColor="#929292" iconSize="8"/></li>
-                            <li><SocialMediaIconsReact icon="twitter" iconColor="#2b161e" backgroundColor="#929292" iconSize="8"/></li>
+                            <li><SocialMediaIconsReact icon="github" iconColor="#f5f7fa" backgroundColor="#2b161e" iconSize="8"/></li>
+                            <li><SocialMediaIconsReact icon="googleplus" iconColor="#f5f7fa" backgroundColor="#2b161e" iconSize="8" /></li>
+                            <li><SocialMediaIconsReact icon="facebook" iconColor="#f5f7fa" backgroundColor="#2b161e" iconSize="8"/></li>
+                            <li><SocialMediaIconsReact icon="twitter" iconColor="#f5f7fa" backgroundColor="#2b161e" iconSize="8"/></li>
                         </ul>
                     </div> 
                 </Aux>);
@@ -150,11 +155,11 @@ class Login extends Component {
         }
 
         return (
-            <div className={classes.Page} >
-                <div className={classes.Auth}>
+            <div className="Page" >
+                <div >
                     {authRedirect}
                     {form}
-                    <div className={classes.Extras}>
+                    <div className="Extras">
                         {loadSpinner}
                         {errorMessage}
                     </div>
