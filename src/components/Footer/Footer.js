@@ -33,15 +33,15 @@ const Footer = () => {
             <h3>Have Questions?</h3>
 			<div className="HBlock">
 				<span className="SP1" ><FontAwesomeIcon icon={faMapMarkerAlt}/></span>
-				<h4>Department of Computer Engineering,</h4>
-				<h4>Faculty of Engineering,</h4>
-				<h4>University of Peradeniya,</h4>
-				<h4>Peradeniya, 20400,</h4>
-				<h4>Sri Lanka</h4>
+				<h4>IntElligence Solutions,</h4>
+				<h4>107 5/10, Senefelderstr,</h4>
+				<h4>Offenbach Am Main,</h4>
+				<h4>Frankfurt, 78214,</h4>
+				<h4>Germany</h4>
 			</div>
 			<div className="HBlock">
 				<span className="SP2" ><FontAwesomeIcon icon={faPhoneAlt}/></span>
-				<h4>+94771234567</h4>
+				<h4>+6952466012</h4>
 			</div>
 			<div className="HBlock">
 				<span className="SP3" ><FontAwesomeIcon icon={faEnvelope}/></span>
@@ -49,7 +49,7 @@ const Footer = () => {
 			</div>
         </div>
         <div className="Bottom">
-			<h4><FaCopyright color="#eee" /> 2020, Department of Computer Engineering University of Peradeniya - All rights reserved </h4>
+			<h4><FaCopyright color="#eee" /> 2020, IntElligence Solutions - All rights reserved </h4>
         </div>
     </footer>
   )

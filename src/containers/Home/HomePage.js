@@ -18,8 +18,8 @@ class HomePage extends Component {
         return (
 			<div className="Home">
 				<div>
-					<h1 className="T1" >ESC 2020</h1>
-					<h1 className="T2">Engineering Students Conference 2020</h1>
+					<h1 className="T1" >ICDM 2020</h1>
+					<h1 className="T2">International Conference on Digital Manufacturing 2020</h1>
 				</div>
 				<div className="Timer">
 					<Countdown 
@@ -31,7 +31,7 @@ class HomePage extends Component {
 						<h2><FontAwesomeIcon icon={faCalendarAlt}/> 30 June 2020</h2>
 				</div>
 				<div className="AltText">
-						<h2><FontAwesomeIcon icon={faMapMarkerAlt}/> University of Peradeniya</h2>
+						<h2><FontAwesomeIcon icon={faMapMarkerAlt}/> Silicon Allee Atrium</h2>
 				</div>
 				
 				<div>

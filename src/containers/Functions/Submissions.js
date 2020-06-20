@@ -20,6 +20,9 @@ class Submissions extends Component {
 
         axios.get( 'test/submissions',tokenData )
         .then( response => {
+            
+            console.log(response);
+
             const fetchedPosts = [];
             for(let key in response.data.result){
                 fetchedPosts.push({
@@ -52,6 +55,8 @@ class Submissions extends Component {
             });
         }
 
+        console.log(this.state.Data);
+
         data = data.slice(-25);
 
         console.log(data);
@@ -73,7 +78,7 @@ class Submissions extends Component {
             <AUX>
                 <div className="TrackBg" >
                     <div className="Title">
-                        <h1>Users</h1>                    
+                        <h1>Submissions</h1>                    
                     </div>
                     <div className="Main">
                         <div className="Search">

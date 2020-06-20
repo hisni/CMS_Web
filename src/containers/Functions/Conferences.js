@@ -73,7 +73,7 @@ class Confernces extends Component {
             <AUX>
                 <div className="TrackBg" >
                     <div className="Title">
-                        <h1>Users</h1>                    
+                        <h1>Conferences</h1>                    
                     </div>
                     <div className="Main">
                         <div className="Search">
