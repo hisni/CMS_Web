@@ -1,21 +1,21 @@
 import React from 'react';
-import classes from './Input.css';
+import './Input.css';
 
 const input = ( props ) => {
     let inputElement = null;
 
-    let InputClass = classes.Input;
-    let inputClasses = [classes.InputElement];
-    let labelClass = classes.Label;
+    let InputClass = "Input";
+    let inputClasses = ["InputElement"];
+    let labelClass = "Label";
 
     if( props.class ){
-        InputClass = classes.ClearFlex;
-        inputClasses = [classes.ClearWidth];
-        labelClass = classes.ClearMargrin;
+        InputClass = "ClearFlex";
+        inputClasses = ["ClearWidth"];
+        labelClass = "ClearMargrin";
     }
 
     if (props.invalid && props.shouldValidate && props.touched) {
-        inputClasses.push(classes.Invalid);
+        inputClasses.push("Invalid");
     }
 
     switch ( props.elementType ) {

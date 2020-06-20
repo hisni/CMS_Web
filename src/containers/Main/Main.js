@@ -9,10 +9,16 @@ import Layout from '../../hoc/Layout/Layout';
 // import FullPost from '../../containers/PostSection/FullPost/FullPost';
 import Login from '../../containers/Auth/Login';
 import Signup from '../../containers/Auth/Signup';
-import HomePage from '../../containers/HomePage/HomePage';
-// import Logout from '../../containers/Auth/Logout';
+import HomePage from '../../containers/Home/HomePage';
+import Schedule from '../../containers/Home/Schedule';
+import Speakers from '../../containers/Home/Speakers';
+import Organizers from '../../containers/Home/Organizers';
+import Logout from '../../containers/Auth/Logout';
 import Profile from '../../containers/Profile/Profile';
-// import User from '../../containers/Profile/User';
+import Paper from '../../containers/Functions/Paper';
+import Users from '../../containers/Functions/Users';
+import Conferences from '../../containers/Functions/Conferences';
+import Submissions from '../../containers/Functions/Submissions';
 // import Accounts from '../PHIControls/Accounts';
 // import DistrictPosts from '../PHIControls/DistrictPosts';
 import * as actions from '../../store/actions/index';
@@ -30,10 +36,9 @@ class Main extends Component {
                 <Route path="/" exact component={HomePage} />
                 <Route path="/login" exact component={Login} />                        
                 <Route path="/register" exact component={Signup} />  
-                <Route path="/dashboard" exact component={Profile} />                                                                  
-                {/* <Route path="/posts/:district" exact component={Posts} />                        
-                <Route path="/post/user/:pid" exact component={User} />
-                <Route path="/posts/:district/:id" exact component={FullPost} /> */}
+                <Route path="/schedule" exact component={Schedule} />
+                <Route path="/speakers" exact component={Speakers} />
+                <Route path="/organizers" exact component={Organizers} />                                                           
                 <Redirect to="/" />
             </Switch>
         );
@@ -41,18 +46,17 @@ class Main extends Component {
         if ( this.props.isAuthenticated ) {
             routes = (
                 <Switch>
-                    {/* <Route path="/" exact component={HomePage} />
-                    <Route path="/login" exact component={Login} />                                            
-                    <Route path="/post-add" exact component={NewPost} />
-                    <Route path="/profile" exact component={Profile} />                    
-                    <Route path="/logout" exact component={Logout} />                 
-                    <Route path="/accounts" exact component={Accounts} />                 
-                    <Route path="/districtposts" exact component={DistrictPosts} />                 
-                    <Route path="/posts/:district" exact component={Posts} />                        
-                    <Route path="/post/user/:pid" exact component={User} />
-                    <Route path="/profile/posts/:id" exact component={FullPost} />
-                    <Route path="/posts/:district/:id" exact component={FullPost} />   
-                    <Redirect to="/" /> */}
+                    <Route path="/" exact component={HomePage} />
+                    <Route path="/login" exact component={Login} />     
+                    <Route path="/dashboard" exact component={Profile} /> 
+                    <Route path="/schedule" exact component={Schedule} />
+                    <Route path="/speakers" exact component={Speakers} />               
+                    <Route path="/logout" exact component={Logout} />                    
+                    <Route path="/dashboard/submitpaper" exact component={Paper} />                        
+                    <Route path="/dashboard/users" exact component={Users} />  
+                    <Route path="/dashboard/conferences" exact component={Conferences} />                         
+                    <Route path="/dashboard/submissions" exact component={Submissions} />                         
+                    <Redirect to="/" />
                 </Switch>
             );
         }
@@ -76,7 +80,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onTryAutoSignup: () => dispatch( actions.authCheckState() ),
-        onTryAutoAdminSignup: () => dispatch( actions.adminAuthCheckState() )
+        // onTryAutoAdminSignup: () => dispatch( actions.adminAuthCheckState() )
     };
 };
 

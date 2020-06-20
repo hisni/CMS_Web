@@ -12,7 +12,7 @@ import Aux from '../../hoc/Auxiliary/Auxiliary'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faLock, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { SocialMediaIconsReact } from 'social-media-icons-react';
-import bcrypt from 'bcryptjs';
+import Hash from 'object-hash';
 
 class Login extends Component {
     state = {
@@ -76,9 +76,8 @@ class Login extends Component {
     submitHandler = ( event ) => {
         event.preventDefault();
 
-        var salt = bcrypt.genSaltSync(10);
-        var hash = bcrypt.hashSync( this.state.controls.Password.value, salt);
-
+        var hash = Hash(this.state.controls.Password.value, { algorithm: 'md5', encoding: 'base64' });
+        
         this.props.onAuth( this.state.controls.Email.value, hash );
     }
 
@@ -151,7 +150,7 @@ class Login extends Component {
 
         let authRedirect = null;
         if (this.props.isAuthenticated) {
-            authRedirect = <Redirect to={'/profile'}/>
+            authRedirect = <Redirect to={'/dashboard'}/>
         }
 
         return (

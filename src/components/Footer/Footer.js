@@ -45,7 +45,7 @@ const Footer = () => {
 			</div>
 			<div className="HBlock">
 				<span className="SP3" ><FontAwesomeIcon icon={faEnvelope}/></span>
-				<h4>e15131@ce.pdn.ac.lk</h4>
+				<h4>escuop2020@ce.pdn.ac.lk</h4>
 			</div>
         </div>
         <div className="Bottom">

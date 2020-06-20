@@ -12,8 +12,8 @@ import * as serviceWorker from './serviceWorker';
 import authReducer from './store/reducers/auth';
 import adminAuthReducer from './store/reducers/adminAuth';
 
-axios.defaults.baseURL = 'https://co227-project.firebaseio.com';
-axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
+axios.defaults.baseURL = 'https://co527project.herokuapp.com/';
+// axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
 axios.defaults.headers.post['Content-Type'] = 'application/json'
 
 const rootReducer = combineReducers({

@@ -8,7 +8,7 @@
     box-shadow: 0 2px 3px #ccc;
     box-sizing: border-box;
     cursor: pointer;
-    background-color: rgb(6, 156, 81);
+    background-color: #423a3d;
     font-weight: bold;
     font-size: 20px;
 }
@@ -19,7 +19,7 @@
 
 .Tile:hover,
 .Tile:active {
-    background-color: rgb(42, 167, 104);
+    background-color: #796f73;
 }
 
 @media (min-width: 520px) {
@@ -40,6 +40,6 @@
     
     .Tile:hover,
     .Tile:active {
-        background-color: rgb(42, 167, 104);
+        background-color: #796f73;
     }
 }

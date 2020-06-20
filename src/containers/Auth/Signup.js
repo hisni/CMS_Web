@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import bcrypt from 'bcryptjs';
+import Hash from 'object-hash';
 
 // import Input from '../../components/UI/Input/Input';
 // import Button from '../../components/UI/Button/Button';
@@ -9,9 +9,9 @@ import bcrypt from 'bcryptjs';
 import './Auth.css';
 import * as actions from '../../store/actions/index';
 import { updateObject, checkValidity } from '../../shared/utility';
-import Aux from '../../hoc/Auxiliary/Auxiliary'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faLock, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import Aux from '../../hoc/Auxiliary/Auxiliary';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faLock, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 class Signup extends Component {
     state = {
@@ -88,9 +88,9 @@ class Signup extends Component {
 
     submitHandler = ( event ) => {
         event.preventDefault();
-        var salt = bcrypt.genSaltSync(10);
-        var hash = bcrypt.hashSync( this.state.controls.Password.value, salt);
-
+        
+        var hash = Hash(this.state.controls.Password.value, { algorithm: 'md5', encoding: 'base64' });
+        
         const data = {
             Email: this.state.controls.Email.value,
             Password: hash,
