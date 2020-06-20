@@ -14,7 +14,9 @@ import adminAuthReducer from './store/reducers/adminAuth';
 
 axios.defaults.baseURL = 'https://co527project.herokuapp.com/';
 // axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
-axios.defaults.headers.post['Content-Type'] = 'application/json'
+axios.defaults.headers.post['Content-Type'] = 'application/json';
+axios.defaults.headers.post['Access-Control-Allow-Origin'] = true;
+axios.defaults.headers.post['Access-Control-Allow-Credentials'] = true;
 
 const rootReducer = combineReducers({
     auth: authReducer,

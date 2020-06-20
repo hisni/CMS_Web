@@ -1,0 +1,33 @@
+[debug] [2020-06-20T16:31:39.022Z] ----------------------------------------------------------------------
+[debug] [2020-06-20T16:31:39.025Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Hisni\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2020-06-20T16:31:39.025Z] CLI Version:   8.4.3
+[debug] [2020-06-20T16:31:39.025Z] Platform:      win32
+[debug] [2020-06-20T16:31:39.025Z] Node Version:  v12.16.1
+[debug] [2020-06-20T16:31:39.027Z] Time:          Sat Jun 20 2020 22:01:39 GMT+0530 (India Standard Time)
+[debug] [2020-06-20T16:31:39.027Z] ----------------------------------------------------------------------
+[debug] [2020-06-20T16:31:39.027Z] 
+[debug] [2020-06-20T16:31:39.036Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-06-20T16:31:39.036Z] > authorizing via signed-in user
+[debug] [2020-06-20T16:31:39.037Z] [iam] checking project ecsuop2020 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-06-20T16:31:39.041Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/ecsuop2020:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2020-06-20T16:31:40.491Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 20 Jun 2020 16:31:40 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1011","alt-svc":"h3-28=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-06-20T16:31:40.497Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/ecsuop2020  
+ 
+[debug] [2020-06-20T16:31:41.078Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 20 Jun 2020 16:31:40 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-28=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'ecsuop2020'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2020-06-20T16:31:41.119Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/ecsuop2020/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2020-06-20T16:31:43.178Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 20 Jun 2020 16:31:42 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-28=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting[ecsuop2020]: beginning deploy... 
+[info] i  hosting[ecsuop2020]: found 18 files in build 
+[debug] [2020-06-20T16:31:43.593Z] [hosting] hash cache [YnVpbGQ] stored for 18 files
+[debug] [2020-06-20T16:31:43.594Z] [hosting][hash queue][FINAL] {"max":389,"min":3,"avg":41.77777777777778,"active":0,"complete":18,"success":18,"errored":0,"retried":0,"total":18,"elapsed":399}
+[debug] [2020-06-20T16:31:43.594Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/ecsuop2020/versions/59b0c9179bc50589:populateFiles  
+ <request body omitted>
+[debug] [2020-06-20T16:31:45.566Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 20 Jun 2020 16:31:45 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-28=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-06-20T16:31:45.571Z] [hosting][populate queue][FINAL] {"max":1976,"min":1976,"avg":1976,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1979}
+[debug] [2020-06-20T16:31:45.571Z] [hosting] uploads queued: 6
