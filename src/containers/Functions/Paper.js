@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
-import './Paper.css';
+import './SubmitPaper.css';
 // import Tile from '../../components/UI/Tile/Tile';
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
