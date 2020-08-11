@@ -31,7 +31,7 @@ class HomePage extends Component {
 						<h2><FontAwesomeIcon icon={faCalendarAlt}/> 30 June 2020</h2>
 				</div>
 				<div className="AltText">
-						<h2><FontAwesomeIcon icon={faMapMarkerAlt}/> Silicon Allee Atrium</h2>
+						<h2><FontAwesomeIcon icon={faMapMarkerAlt}/> Silicon Allee Atriumn</h2>
 				</div>
 				
 				<div>

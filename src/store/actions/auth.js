@@ -91,9 +91,9 @@ export const authSignUp = ( data ) => {
         const authData = {
             email: data.Email,
             password: data.Password,
-            name: data.Username,
-            first_name: 'admin',
-            last_name:  'ESC',
+            // name: data.Username,
+            first_name: data.Firstname,
+            last_name:  data.Lastname,
             // returnSecureToken: true
         };
 

@@ -16,16 +16,30 @@ import { faUser, faLock, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 class Signup extends Component {
     state = {
         controls: {
-            Username: {
+            Firstname: {
                 elementType: 'input',
                 elementConfig: {
                     type: 'username',
-                    placeholder: 'Username'
+                    placeholder: 'Firstname'
                 },
                 value: '',
                 validation: {
                     required: true,
-                    minLength: 6
+                    // minLength: 3
+                },
+                valid: false,
+                touched: false
+            },
+            Lastname: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'username',
+                    placeholder: 'Flastname'
+                },
+                value: '',
+                validation: {
+                    required: true,
+                    // minLength: 3
                 },
                 valid: false,
                 touched: false
@@ -94,7 +108,8 @@ class Signup extends Component {
         const data = {
             Email: this.state.controls.Email.value,
             Password: hash,
-            Username: this.state.controls.Username.value,
+            Firstname: this.state.controls.Firstname.value,
+            Lastname: this.state.controls.LAstname.value,
         }
         this.props.onAuth( data, this.state.isSignup );
     }
@@ -109,45 +124,55 @@ class Signup extends Component {
         }
 
         let form = (
-                <Aux>
-                    <div className="container">
-                        <div id="login">
-                            <form className="login-form" onSubmit={this.onSubmit}>
-                                <span><FontAwesomeIcon icon={faUser}/></span>
-                                <input
-                                    autoFocus
-                                    maxLength="25"
-                                    onChange={( event ) => this.inputChangedHandler( event, "Username" )}
-                                    placeholder="Username"
-                                    type="text"
-                                    value={this.state.controls.Username.value}
-                                    required
-                                />
-                                <span><FontAwesomeIcon icon={faEnvelope}/></span>
-                                <input
-                                    autoFocus
-                                    maxLength="25"
-                                    onChange={( event ) => this.inputChangedHandler( event, "Email" )}
-                                    placeholder="Email"
-                                    type="email"
-                                    value={this.state.controls.Email.value}
-                                    required
-                                />
-                                <span><FontAwesomeIcon icon={faLock}/></span>
-                                <input
-                                    autoComplete="off"
-                                    maxLength="16"
-                                    onChange={( event ) => this.inputChangedHandler( event, "Password" )}
-                                    placeholder="Password"
-                                    type="password"
-                                    value={this.state.controls.Password.value}
-                                    required
-                                />
-                                <input type="submit" value="Sign Up"/>
-                            </form>
-                        </div>
+            <Aux>
+                <div className="container">
+                    <div id="login">
+                        <form className="login-form" onSubmit={this.onSubmit}>
+                            <span><FontAwesomeIcon icon={faUser}/></span>
+                            <input
+                                autoFocus
+                                maxLength="25"
+                                onChange={( event ) => this.inputChangedHandler( event, "Firstname" )}
+                                placeholder="Firstname"
+                                type="text"
+                                value={this.state.controls.Firstname.value}
+                                required
+                            />
+                            <span><FontAwesomeIcon icon={faUser}/></span>
+                            <input
+                                autoFocus
+                                maxLength="25"
+                                onChange={( event ) => this.inputChangedHandler( event, "Lastname" )}
+                                placeholder="Lastname"
+                                type="text"
+                                value={this.state.controls.Lastname.value}
+                                required
+                            />
+                            <span><FontAwesomeIcon icon={faEnvelope}/></span>
+                            <input
+                                autoFocus
+                                maxLength="25"
+                                onChange={( event ) => this.inputChangedHandler( event, "Email" )}
+                                placeholder="Email"
+                                type="email"
+                                value={this.state.controls.Email.value}
+                                required
+                            />
+                            <span><FontAwesomeIcon icon={faLock}/></span>
+                            <input
+                                autoComplete="off"
+                                maxLength="16"
+                                onChange={( event ) => this.inputChangedHandler( event, "Password" )}
+                                placeholder="Password"
+                                type="password"
+                                value={this.state.controls.Password.value}
+                                required
+                            />
+                            <input type="submit" value="Sign Up"/>
+                        </form>
                     </div>
-                </Aux>
+                </div>
+            </Aux>
         );
 
         let loadSpinner = null;

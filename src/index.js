@@ -12,7 +12,8 @@ import * as serviceWorker from './serviceWorker';
 import authReducer from './store/reducers/auth';
 import adminAuthReducer from './store/reducers/adminAuth';
 
-axios.defaults.baseURL = 'https://co527project.herokuapp.com/';
+// axios.defaults.baseURL = 'https://co527project.herokuapp.com/';
+axios.defaults.baseURL = 'http://localhost:3000/';
 // axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.post['Access-Control-Allow-Origin'] = true;

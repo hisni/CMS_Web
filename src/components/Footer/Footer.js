@@ -26,8 +26,8 @@ const Footer = () => {
         </div>
         <div className="Left">
             <h3>More Links</h3>
-			<h4 className="Cen"><a href="http://www.ce.pdn.ac.lk/" target="_blank" rel="noopener noreferrer" >ce.pdn.ac.lk</a></h4>
-			<h4 className="Cen"><a href="https://eng.pdn.ac.lk/" target="_blank" rel="noopener noreferrer" >eng.pdn.ac.lk</a></h4>
+			<h4 className="Cen"><a href="https://intelsolutions.de/" target="_blank" rel="noopener noreferrer" >intelsolutions.de</a></h4>
+			<h4 className="Cen"><a href="https://architecintel.de/" target="_blank" rel="noopener noreferrer" >architecintel.de</a></h4>
         </div>
 		<div className="Right">
             <h3>Have Questions?</h3>
@@ -45,7 +45,7 @@ const Footer = () => {
 			</div>
 			<div className="HBlock">
 				<span className="SP3" ><FontAwesomeIcon icon={faEnvelope}/></span>
-				<h4>escuop2020@ce.pdn.ac.lk</h4>
+				<h4>icdm2020@intelsolutions.de</h4>
 			</div>
         </div>
         <div className="Bottom">
