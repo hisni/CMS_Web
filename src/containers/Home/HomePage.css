@@ -51,7 +51,7 @@
 }
 
 .T1{
-	font-size: 68px;
+	font-size: 70px;
 	font-weight: bolder;
 	color: #2a264b;
 	padding: 20px 0 40px 0;	
@@ -59,28 +59,33 @@
 }
 
 .T2{
-	font-size: 36px;
+	font-size: 40px;
 	font-weight: bold;
 	color: #4d3e69;
-	padding: 0 0 20px 0;
+    padding: 0 0 20px 0;
+    margin: 10px 0 0 0;
 }
 
 .h2{
 	padding: 10px 0;
 }
+
 .AltText{
 	font-size: 24px;
 	font-weight: bold;
 	color: #4b2626;
-	padding: 15px 0 15px 0;	
+    padding: 10px 0 10px 0;	
 }
 
-Timer{
+.Timer{
 	clear: both;
 	float: none;
-	padding: 40px 0;
+    padding: 40px 0;
 }
 
+.ButtonText{
+    margin-bottom: 10px;
+}
 /* 
 @media (min-width: 520px) {
     .ints{

@@ -1,0 +1,8 @@
+.UserLayout {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.mainContent {
+    width: 80%;
+}

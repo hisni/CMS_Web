@@ -23,18 +23,18 @@ class HomePage extends Component {
 				</div>
 				<div className="Timer">
 					<Countdown 
-						timeTillDate="06 30 2020, 6:00 am" 
+						timeTillDate="08 24 2020, 12:38 pm" 
 						timeFormat="MM DD YYYY, h:mm a" 
 					/>
 				</div>
 				<div className="AltText">
-						<h2><FontAwesomeIcon icon={faCalendarAlt}/> 30 June 2020</h2>
+						<h2><FontAwesomeIcon icon={faCalendarAlt}/> 24 August 2020</h2>
 				</div>
 				<div className="AltText">
 						<h2><FontAwesomeIcon icon={faMapMarkerAlt}/> Silicon Allee Atriumn</h2>
 				</div>
 				
-				<div>
+				<div className="ButtonText">
 					<button class="Button">Call for Papers  <FontAwesomeIcon icon={faArrowRight}/></button>
 					<button class="Button">Register</button>
 				</div>

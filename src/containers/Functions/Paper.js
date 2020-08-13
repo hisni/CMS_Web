@@ -8,7 +8,7 @@ import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
 // import AUX from '../../hoc/Auxiliary/Auxiliary';
 import { updateObject, checkValidity } from '../../shared/utility';
-
+import UserLayout from '../Profile/UserLayout';
 
 class Paper extends Component {
 
@@ -87,6 +87,11 @@ class Paper extends Component {
         }
 
         this.setState({PostForm: updatedPostForm, formIsValid: formIsValid});
+
+        if( PostIdentifier === "File" ){
+            console.log("true");
+        }
+
     }
 
     componentDidMount(){
@@ -141,16 +146,18 @@ class Paper extends Component {
         );
 
         return (
-            <div className="PageSub">
-                <div className="Sub">
-                    {/* {redirect} */}
-                    <h1>Submit a Paper</h1>
-                    <form onSubmit={this.postDataHandler} encType="multipart/form-data">
-                        {form}
-                        <Button btnType="Success" disabled={!this.state.formIsValid} >Add Post</Button>
-                    </form>
+            <UserLayout>
+                <div className="PageSub">
+                    <div className="Sub">
+                        {/* {redirect} */}
+                        <h1>Submit a Paper</h1>
+                        <form onSubmit={this.postDataHandler} encType="multipart/form-data">
+                            {form}
+                            <Button btnType="Success" disabled={!this.state.formIsValid} >Add Post</Button>
+                        </form>
+                    </div>
                 </div>
-            </div>
+            </UserLayout>
         );
     }
 }

@@ -1,0 +1,56 @@
+/* .SidebarItem {
+    margin: 100px 0;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.SidebarItem a {
+    color: rgb(2, 24, 13);
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+}
+
+.SidebarItem a:hover,
+.SidebarItem a:active,
+.SidebarItem a.active {
+    color: rgb(2, 56, 38);
+} */
+
+.SidebarItem {
+    margin: 0;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: left;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.SidebarItem a {
+    color: #22134e;
+    height: 100%;
+    padding: 20px 20px;
+    vertical-align: middle;
+    border-bottom: 4px solid transparent;
+}
+
+.SidebarItem.Reset {
+    width: 100px;
+}
+
+.SidebarItem.Reset a {
+    padding: 10px 10px;
+}
+
+.SidebarItem a:hover,
+.SidebarItem a:active,
+.SidebarItem a.active {
+    opacity: 0.75;
+    border-left: 4px solid rgb(43, 43, 43);
+    color: #57468a;
+}

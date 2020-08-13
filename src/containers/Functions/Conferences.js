@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import './Conferences.css';
 import AUX from '../../hoc/Auxiliary/Auxiliary';
+import UserLayout from '../Profile/UserLayout';
 
 class Confernces extends Component {
 
@@ -71,28 +72,30 @@ class Confernces extends Component {
 
         return(
             <AUX>
-                <div className="TrackBg" >
-                    <div className="Title">
-                        <h1>Conferences</h1>                    
-                    </div>
-                    <div className="Main">
-                        <div className="Search">
-                            <label for="sc">Search: </label>
-                            <input type="search" id="gsearch" name="dc"/> 
+                <UserLayout>
+                    <div className="TrackBg" >
+                        <div className="Title">
+                            <h1>Conferences</h1>                    
                         </div>
-                        <table id="Tdata">
-                            <tr>
-                                <th>Title</th>
-                                <th>Description</th>
-                                <th>Date</th>
-                                <th>Venue</th>
-                                <th>Seats Count</th>
-                                <th>Available Seats</th>
-                            </tr>
-                            {tableData}
-                        </table>
+                        <div className="Main">
+                            <div className="Search">
+                                <label for="sc">Search: </label>
+                                <input type="search" id="gsearch" name="dc"/> 
+                            </div>
+                            <table id="Tdata">
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Date</th>
+                                    <th>Venue</th>
+                                    <th>Seats Count</th>
+                                    <th>Available Seats</th>
+                                </tr>
+                                {tableData}
+                            </table>
+                        </div>
                     </div>
-                </div>
+                </UserLayout>
             </AUX>
         );
     }

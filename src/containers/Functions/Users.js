@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import './Users.css';
 import AUX from '../../hoc/Auxiliary/Auxiliary';
+import UserLayout from '../Profile/UserLayout';
 
 class Profile extends Component {
 
@@ -69,27 +70,29 @@ class Profile extends Component {
 
         return(
             <AUX>
-                <div className="TrackBg" >
-                    <div className="Title">
-                        <h1>Users</h1>                    
-                    </div>
-                    <div className="Main">
-                        <div className="Search">
-                            <label for="sc">Search: </label>
-                            <input type="search" id="gsearch" name="dc"/> 
+                <UserLayout>
+                    <div className="TrackBg" >
+                        <div className="Title">
+                            <h1>Users</h1>                    
                         </div>
-                        <table id="Tdata">
-                            <tr>
-                                <th>ID</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Email</th>
-                                <th>Country Code</th>
-                            </tr>
-                            {tableData}
-                        </table>
+                        <div className="Main">
+                            <div className="Search">
+                                <label for="sc">Search: </label>
+                                <input type="search" id="gsearch" name="dc"/> 
+                            </div>
+                            <table id="Tdata">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Email</th>
+                                    <th>Country Code</th>
+                                </tr>
+                                {tableData}
+                            </table>
+                        </div>
                     </div>
-                </div>
+                </UserLayout>
             </AUX>
         );
     }

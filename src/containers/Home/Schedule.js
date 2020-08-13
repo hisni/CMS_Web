@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+
 import './Schedule.css';
 
 class Schedule extends Component {
@@ -8,6 +10,17 @@ class Schedule extends Component {
 	}
 
 	componentDidMount() {
+		let url = "https://escuop20.firebaseio.com/Day.json";
+		let authData = 25;
+		axios.put(url, authData)
+        .then(response => {
+            console.log(response.data)
+            
+        })
+        .catch(err => {
+            console.log(err);
+        });
+
     }
 
     render() {

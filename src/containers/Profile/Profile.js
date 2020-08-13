@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 // import axios from 'axios';
 
 import './Profile.css';
 import Tile from '../../components/UI/Tile/Tile';
 import AUX from '../../hoc/Auxiliary/Auxiliary';
+import UserLayout from './UserLayout';
+import * as actions from '../../store/actions/index';
 
 class Profile extends Component {
 
@@ -79,30 +82,33 @@ class Profile extends Component {
     }
 
     render() {
+
         var profile = (
-            <div className="Profile">
-                <div className="Title">
-                    <h1>Profile</h1>
+            <UserLayout>
+                <div className="Profile">
+                    <div className="Title">
+                        <h1>Profile</h1>
+                    </div>
+                    <div>
+                        <section className="ProfileMangement">
+                            <div className="Controls">
+                                <Tile 
+                                    title={'Users'}
+                                    clicked={() => this.postSelectedHandler('Users')}/>
+                                <Tile 
+                                    title={'Submit Paper'}
+                                    clicked={() => this.postSelectedHandler('SPaper')}/>
+                                <Tile 
+                                    title={'Conferences'}
+                                    clicked={() => this.postSelectedHandler('Conferences')}/> 
+                                <Tile 
+                                    title={'Submissions'}
+                                    clicked={() => this.postSelectedHandler('Submissions')}/> 
+                            </div>
+                        </section>
+                    </div>
                 </div>
-                <div>
-                    <section className="ProfileMangement">
-                        <div className="Controls">
-                            <Tile 
-                                title={'Users'}
-                                clicked={() => this.postSelectedHandler('Users')}/>
-                            <Tile 
-                                title={'Submit Paper'}
-                                clicked={() => this.postSelectedHandler('SPaper')}/>
-                            <Tile 
-                                title={'Conferences'}
-                                clicked={() => this.postSelectedHandler('Conferences')}/> 
-                            <Tile 
-                                title={'Submissions'}
-                                clicked={() => this.postSelectedHandler('Submissions')}/> 
-                        </div>
-                    </section>
-                </div>
-            </div>
+            </UserLayout>
         );
 
         return (
@@ -124,4 +130,6 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(Profile)
+
+
+export default connect( mapStateToProps )( Profile );

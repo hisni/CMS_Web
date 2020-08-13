@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import './Users.css';
 import AUX from '../../hoc/Auxiliary/Auxiliary';
+import UserLayout from '../Profile/UserLayout';
 
 class Submissions extends Component {
 
@@ -76,28 +77,30 @@ class Submissions extends Component {
 
         return(
             <AUX>
-                <div className="TrackBg" >
-                    <div className="Title">
-                        <h1>Submissions</h1>                    
-                    </div>
-                    <div className="Main">
-                        <div className="Search">
-                            <label for="sc">Search: </label>
-                            <input type="search" id="gsearch" name="dc"/> 
+                <UserLayout>
+                    <div className="TrackBg" >
+                        <div className="Title">
+                            <h1>Submissions</h1>                    
                         </div>
-                        <table id="Tdata">
-                            <tr>
-                                <th>ID</th>
-                                <th>User ID</th>
-                                <th>Subject ID</th>
-                                <th>Title</th>
-                                <th>Status</th>
-                                <th>File</th>
-                            </tr>
-                            {tableData}
-                        </table>
+                        <div className="Main">
+                            <div className="Search">
+                                <label for="sc">Search: </label>
+                                <input type="search" id="gsearch" name="dc"/> 
+                            </div>
+                            <table id="Tdata">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>User ID</th>
+                                    <th>Subject ID</th>
+                                    <th>Title</th>
+                                    <th>Status</th>
+                                    <th>File</th>
+                                </tr>
+                                {tableData}
+                            </table>
+                        </div>
                     </div>
-                </div>
+                </UserLayout>
             </AUX>
         );
     }

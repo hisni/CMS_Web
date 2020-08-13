@@ -15,6 +15,7 @@ import Speakers from '../../containers/Home/Speakers';
 import Organizers from '../../containers/Home/Organizers';
 import Logout from '../../containers/Auth/Logout';
 import Profile from '../../containers/Profile/Profile';
+// import UserLayout from '../../containers/Profile/UserLayout';
 import Paper from '../../containers/Functions/Paper';
 import Users from '../../containers/Functions/Users';
 import Conferences from '../../containers/Functions/Conferences';
@@ -56,7 +57,6 @@ class Main extends Component {
                     <Route path="/dashboard/users" exact component={Users} />  
                     <Route path="/dashboard/conferences" exact component={Conferences} />                         
                     <Route path="/dashboard/submissions" exact component={Submissions} />                         
-                    <Redirect to="/" />
                 </Switch>
             );
         }
