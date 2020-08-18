@@ -63,6 +63,7 @@ class Paper extends Component {
                     name: 'submissionFile'
                 },
                 value: '',
+                file: null,
                 validation: {},
                 valid: true
             }
@@ -73,24 +74,33 @@ class Paper extends Component {
     }
 
     inputChangedHandler = (event, PostIdentifier) =>{
-        const updatedPostForm = updateObject( this.state.PostForm, {
-            [PostIdentifier]: updateObject( this.state.PostForm[PostIdentifier], {
-                value: event.target.value,
-                valid: checkValidity( event.target.value, this.state.PostForm[PostIdentifier].validation ),
-                touched: true
-            } )
-        } );
 
+        let updatedPostForm = null;
+        if( PostIdentifier === "File" ){
+            updatedPostForm = updateObject( this.state.PostForm, {
+                [PostIdentifier]: updateObject( this.state.PostForm[PostIdentifier], {
+                    value: event.target.value,
+                    file:event.target.files[0],
+                    valid: checkValidity( event.target.value, this.state.PostForm[PostIdentifier].validation ),
+                    touched: true
+                } )
+            } );    
+        }else{
+            updatedPostForm = updateObject( this.state.PostForm, {
+                [PostIdentifier]: updateObject( this.state.PostForm[PostIdentifier], {
+                    value: event.target.value,
+                    valid: checkValidity( event.target.value, this.state.PostForm[PostIdentifier].validation ),
+                    touched: true
+                } )
+            } );    
+        }
+        
         let formIsValid = true;
         for (let inputIdentifier in updatedPostForm) {
             formIsValid = updatedPostForm[inputIdentifier].valid && formIsValid;
         }
 
         this.setState({PostForm: updatedPostForm, formIsValid: formIsValid});
-
-        if( PostIdentifier === "File" ){
-            console.log("true");
-        }
 
     }
 
@@ -109,8 +119,12 @@ class Paper extends Component {
         
         const data = {
             token: token,
-            file : this.state.PostForm.File.value
+            file : this.state.PostForm.File.file
         };
+
+        // const data = new FormData() 
+        // data.append('file', this.state.PostForm.File.file)
+        // data.append('token', token)
         
         console.log(data);
         let url = 'uploadfile';

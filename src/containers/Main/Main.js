@@ -18,7 +18,7 @@ import Profile from '../../containers/Profile/Profile';
 // import UserLayout from '../../containers/Profile/UserLayout';
 import Paper from '../../containers/Functions/Paper';
 import Users from '../../containers/Functions/Users';
-import Conferences from '../../containers/Functions/Conferences';
+import Conferences from '../../containers/Functions/Page';
 import Submissions from '../../containers/Functions/Submissions';
 // import Accounts from '../PHIControls/Accounts';
 // import DistrictPosts from '../PHIControls/DistrictPosts';
@@ -51,12 +51,14 @@ class Main extends Component {
                     <Route path="/login" exact component={Login} />     
                     <Route path="/dashboard" exact component={Profile} /> 
                     <Route path="/schedule" exact component={Schedule} />
-                    <Route path="/speakers" exact component={Speakers} />               
+                    <Route path="/speakers" exact component={Speakers} />  
+                    <Route path="/organizers" exact component={Organizers} />             
                     <Route path="/logout" exact component={Logout} />                    
                     <Route path="/dashboard/submitpaper" exact component={Paper} />                        
                     <Route path="/dashboard/users" exact component={Users} />  
                     <Route path="/dashboard/conferences" exact component={Conferences} />                         
-                    <Route path="/dashboard/submissions" exact component={Submissions} />                         
+                    <Route path="/dashboard/submissions" exact component={Submissions} /> 
+                    <Redirect to="/" />                        
                 </Switch>
             );
         }
