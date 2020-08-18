@@ -28,8 +28,9 @@
     background-color: rgba(52, 168, 110, 0.726);
 }
 
-.Signup p {
+.errormsg {
     color: rgb(119, 8, 8);
+    font:
 }
 
 .Extras{
@@ -40,6 +41,11 @@
 .Page{
     padding: 70px 0 150px 0;
     min-height: 100vh;
+}
+
+.SubButton:disabled {
+    opacity: .2;
+    cursor: not-allowed;
 }
 
 @media (min-width: 600px) {

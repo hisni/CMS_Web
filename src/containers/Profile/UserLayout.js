@@ -8,12 +8,13 @@ import SidebarItems from './Sidebar/SidebarItems'
 class UserLayout extends Component {
     
     render () {
+
         return (
             <Aux>
                 <div className="UserLayout">
                     <SidebarItems 
                         isAuth={this.props.isAuthenticated}
-                        // isAuth={true}
+                        role={this.props.Role}
                         drawerToggleClicked={this.sideDrawerToggleHandler} />
                     <main className="mainContent">
                         {this.props.children}
@@ -27,6 +28,7 @@ class UserLayout extends Component {
 const mapStateToProps = state => {
     return {
         isAuthenticated: state.auth.token !== null,
+        Role: state.auth.user_role
     }
 }
 

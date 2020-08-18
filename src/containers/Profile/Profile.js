@@ -32,35 +32,6 @@ class Profile extends Component {
 
     componentDidMount(){
         // this.props.onTryAutoSignup();
-
-        // const tokenData = {
-        //     token: this.props.token
-        // };
-
-        // axios.get( 'test/submissions',tokenData )
-        // .then( response => {
-        //         console.log(response);
-        //     const fetchedNodes = [];
-        //     for(let key in response.data){
-        //         fetchedNodes.push({
-        //             ...response.data[key],
-        //             id: key
-        //         });
-        //     }
-        //     this.setState({RelayNodes: fetchedNodes});
-
-        //     this.state.RelayNodes.map(nodes => {
-        //         const updatedControls = {
-        //             ...this.state.Controls,
-        //         };
-        //         updatedControls.Nodes.elementConfig.options.push(
-        //                 { value: nodes.id, displayValue: nodes.id }
-        //         )
-        //         this.setState({Controls: updatedControls});
-        //         return true;
-        //     })
-        //     // console.log(this.state.Coordinates);
-        // } );
     }
 
     postSelectedHandler = (id) => {
@@ -130,6 +101,10 @@ const mapStateToProps = state => {
     }
 }
 
+const mapDispatchToProps = dispatch => {
+    return {
+        onTryAutoSignup: () => dispatch( actions.authCheckState() ),
+    };
+};
 
-
-export default connect( mapStateToProps )( Profile );
+export default connect( mapStateToProps, mapDispatchToProps )( Profile );

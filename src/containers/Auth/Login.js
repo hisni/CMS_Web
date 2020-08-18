@@ -90,6 +90,14 @@ class Login extends Component {
             } );
         }
 
+        let errorMessage = null;
+
+        if (this.props.error) {
+            errorMessage = (
+                <p className="errormsg">Invalid email or password. Please try again.</p>
+            );
+        }
+
         let form = (
                 <Aux>
                     <div className="container">
@@ -115,7 +123,8 @@ class Login extends Component {
                                 value={this.state.controls.Password.value}
                                 required
                             />
-                            <input type="submit" value="Log in"/>
+                            <input className="SubButton" type="submit" disabled={!this.state.formIsValid} value="Log in"/>
+                            {errorMessage}
                             </form>
                         </div>
                     </div>
@@ -140,14 +149,6 @@ class Login extends Component {
             // loadSpinner = <Spinner />
         }
 
-        let errorMessage = null;
-
-        if (this.props.error) {
-            errorMessage = (
-                <p>Invalid email or password. Please try again.</p>
-            );
-        }
-
         let authRedirect = null;
         if (this.props.isAuthenticated) {
             authRedirect = <Redirect to={'/dashboard'}/>
@@ -160,7 +161,6 @@ class Login extends Component {
                     {form}
                     <div className="Extras">
                         {loadSpinner}
-                        {errorMessage}
                     </div>
                 </div>
             </div>

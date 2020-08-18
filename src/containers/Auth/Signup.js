@@ -168,7 +168,7 @@ class Signup extends Component {
                                 value={this.state.controls.Password.value}
                                 required
                             />
-                            <input type="submit" value="Sign Up"/>
+                            <input className="SubButton" type="submit" disabled={!this.state.formIsValid} value="Sign Up"/>
                         </form>
                     </div>
                 </div>

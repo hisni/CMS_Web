@@ -4,8 +4,10 @@ import { updateObject } from '../../shared/utility';
 const initialState = {
     token: null,
     userId: null,
-    username: null,
-    phone: null,
+    first_name: null,
+    last_name: null,
+    email: null,
+    user_role: null,
     error: null,
     loading: false,
     signUpSuccess: false,
@@ -16,11 +18,14 @@ const authStart = ( state, action ) => {
 };
 
 const authSuccess = (state, action) => {
+    console.log(action);
     return updateObject( state, { 
         token: action.idToken,
         userId: action.userId,
-        username: action.name,
-        phone: action.phoneNo,
+        first_name: action.first_name,
+        last_name: action.last_name,
+        email: action.email,
+        user_role: action.user_role,
         error: null,
         loading: false,
         signUpSuccess: false

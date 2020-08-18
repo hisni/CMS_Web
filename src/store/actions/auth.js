@@ -9,13 +9,14 @@ export const authStart = () => {
     };
 };
 
-export const authSuccess = (token, userId, username, phone) => {
+export const authSuccess = (token, fname, lname, email, role) => {
     return {
         type: actionTypes.AUTH_SUCCESS,
         idToken: token,
-        userId: userId,
-        name:username,
-        phoneNo:phone
+        first_name: fname,
+        last_name: lname,
+        email: email,
+        user_role: role,
     };
 };
 
@@ -38,9 +39,13 @@ export const signUpSuccess = () => {
 
 export const logout = () => {
     localStorage.removeItem('token');
-    localStorage.removeItem('expirationDate');
-    localStorage.removeItem('userId');
-    localStorage.removeItem('username');
+    // localStorage.removeItem('expirationDate');
+    // localStorage.removeItem('userId');
+    // localStorage.removeItem('username');
+    localStorage.removeItem('email');
+    localStorage.removeItem('fname');
+    localStorage.removeItem('lname');
+    localStorage.removeItem('role');
     
     return {
         type: actionTypes.AUTH_LOGOUT
@@ -67,19 +72,23 @@ export const authSignIn = (email, password) => {
      
         axios.post(url, authData)
         .then(response => {
-            console.log(response.data)
-            // const expirationDate = new Date(new Date().getTime() + response.data.expiresIn * 1000);
+            console.log(response.data.details)
             localStorage.setItem('token', response.data.token);
+            localStorage.setItem('email', response.data.details.email);
+            localStorage.setItem('fname', response.data.details.first_name);
+            localStorage.setItem('lname', response.data.details.last_name);
+            localStorage.setItem('role', response.data.details.user_role);
+
             // localStorage.setItem('expirationDate', expirationDate);
             // localStorage.setItem('userId', response.data.localId);
             // dbURL = 'https://co321project-e273b.firebaseio.com/userInfo/'+response.data.localId+'.json?auth=' + response.data.idToken; 
             // dispatch(loadSigninData( dbURL, response.data.idToken, response.data.localId ));
             // dispatch(checkAuthTimeout(response.data.expiresIn));
-            dispatch(authSuccess(response.data.token, "admin", "admin", "123"));
+            dispatch(authSuccess(response.data.token, response.data.details.first_name, response.data.details.last_name, response.data.details.email, response.data.details.user_role));
         })
         .catch(err => {
-            console.log(err);
-            // dispatch(authFail(err.response.data.error));
+            // console.log(err);
+            dispatch(authFail("Invalid Email/Password"));
         });
     };
 };
@@ -104,7 +113,7 @@ export const authSignUp = ( data ) => {
             dispatch(signUpSuccess());
         })
         .catch(err => {
-            console.log(err);
+            console.log("Error");
             // dispatch(authFail(err.response.data.error));
         });
     };
@@ -157,17 +166,13 @@ export const authCheckState = () => {
         if (!token) {
             dispatch(logout());
         } else {
-            // const expirationDate = new Date(localStorage.getItem('expirationDate'));
-            // if (expirationDate <= new Date()) {
-            //     dispatch(logout());
-            // } else {
-            //     const userId = localStorage.getItem('userId');
-            //     const username = localStorage.getItem('username');
-            //     const phone = localStorage.getItem('phone');
-
-                dispatch(authSuccess(token, "admin", "admin", "123" ));
-                // dispatch(checkAuthTimeout((expirationDate.getTime() - new Date().getTime()) / 1000 ));
-            // }   
+            
+            const fname = localStorage.getItem('fname');
+            const lname = localStorage.getItem('lname');
+            const email = localStorage.getItem('email');
+            const role = localStorage.getItem('role');
+            
+            dispatch(authSuccess(token, fname, lname, email, role));   
         }
     };
 };
