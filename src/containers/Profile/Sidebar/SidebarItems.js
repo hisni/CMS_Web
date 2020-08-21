@@ -21,7 +21,6 @@ const SidebarItems = (props) => (
                     <SidebarItem link="/dashboard/submitpaper" >Submit Paper</SidebarItem>
                     <SidebarItem link="/dashboard/review" >Review Papers</SidebarItem>
                     <SidebarItem link="/dashboard/submissions" >Submissions</SidebarItem>
-                    <SidebarItem link="/dashboard/conferences" >Past Conferences</SidebarItem>
                 </Aux> }
 
     </ul>
