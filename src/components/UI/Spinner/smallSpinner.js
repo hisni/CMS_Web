@@ -1,8 +1,8 @@
 import React from 'react';
-import classes from './smallSpinner.css';
+import './smallSpinner.css';
 
 const spinner = () => (
-    <div className={classes.IdsRipple}><div></div><div></div></div>
+    <div className="IdsRipple"><div></div><div></div></div>
 );
 
 export default spinner;

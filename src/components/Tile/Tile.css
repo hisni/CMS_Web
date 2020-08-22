@@ -1,8 +1,17 @@
-.Tile {
-    width: 80%;
-    height: 90px;
-    padding: 12px 0;
-    margin: 5% 15%;
+.CardRoot {
+    /* max-width: 345px; */
+    width: 350px;
+}
+
+.CardMedia {
+    height: 250px;
+}
+
+.CardTile {
+    /* width: 350px; */
+    height: 415px;
+    padding: 15px 0;
+    margin: 10px 10px;
     text-align: center;
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
@@ -13,28 +22,24 @@
     font-size: 20px;
 }
 
-.Tile p{
-    color: #72f1b6
+.CardTile p{
+    color: #000000
 }
 
-.Tile:hover,
-.Tile:active {
+.CardTile:hover,
+.CardTile:active {
     background-color: #796f73;
 }
 
-@media (min-width: 520px) {
+/* @media (min-width: 520px) {
     .Tile {
         width: 200px;
-        height: 40px;
-        padding: 8px 0;
-        margin: 10px 10px;
+        height: 100px;
+        padding: 12px 0;
+        margin: 20px auto;
         border: 1px solid #eee;
-        border-radius: 5px;
         box-shadow: 0 2px 3px #ccc;
         box-sizing: border-box;
-        background-color: #423a3d;
-        /* font-weight: bold; */
-        font-size: 15px;
         
     }
     
@@ -46,4 +51,4 @@
     .Tile:active {
         background-color: #796f73;
     }
-}
+} */

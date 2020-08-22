@@ -4,9 +4,6 @@ import { connect } from 'react-redux';
 
 import './Main.css';
 import Layout from '../../hoc/Layout/Layout';
-// import Posts from '../../containers/PostSection/Posts/Posts';
-// import NewPost from '../../containers/PostSection/NewPost/NewPost';
-// import FullPost from '../../containers/PostSection/FullPost/FullPost';
 import Login from '../../containers/Auth/Login';
 import Signup from '../../containers/Auth/Signup';
 import HomePage from '../../containers/Home/HomePage';
@@ -15,13 +12,10 @@ import Speakers from '../../containers/Home/Speakers';
 import Organizers from '../../containers/Home/Organizers';
 import Logout from '../../containers/Auth/Logout';
 import Profile from '../../containers/Profile/Profile';
-// import UserLayout from '../../containers/Profile/UserLayout';
 import Paper from '../../containers/Functions/Paper';
 import Users from '../../containers/Functions/Users';
 import Conferences from '../../containers/Functions/Page';
 import Submissions from '../../containers/Functions/Submissions';
-// import Accounts from '../PHIControls/Accounts';
-// import DistrictPosts from '../PHIControls/DistrictPosts';
 import * as actions from '../../store/actions/index';
 
 class Main extends Component {

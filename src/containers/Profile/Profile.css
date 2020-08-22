@@ -20,6 +20,7 @@
     flex-flow: row wrap;
     float: left;
     width: 100%;
+    justify-content: center;
 }
 
 /* .Posts {
@@ -34,10 +35,12 @@
     height: 50px;
     text-align: center;
     padding: 0 25px;
-    margin: 15px 0;
+    margin: 15px 105px;
     color: #22134e;
     font-weight: bold;
     font-size: 36px;
+    border-bottom: 5px solid #423a3d;
+    width: 80%;
 }
 
 .Tiles{
@@ -48,6 +51,20 @@
     margin: 100px 0;
 }
 
+.Name{
+    text-align: center;
+    /* padding: 0 25px; */
+    /* margin: 15px 0; */
+    color: #584e52;
+    font-weight: bold;
+    font-size: 24px;
+    /* width: 80%; */
+}
+
+.Name h1{
+    margin: 15px;
+}
+
 @media (min-width: 520px) {
     .ProfileMangement {
         display: flex;
@@ -55,7 +72,7 @@
     }
 
     .Controls{
-        margin-top:50px; 
+        /* margin-top:50px;  */
         float: left;
         width: 100%;
     }

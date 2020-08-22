@@ -1,0 +1,47 @@
+.Sub {
+    width: 80%;
+    margin: 20px auto;
+    padding: 0 15px;
+    /* border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc; */
+    /* background-color: rgba(91, 143, 117, 0.726); */
+    text-align: center;
+    color: #423a3d;
+}
+
+.PageSub{
+    min-height: 100vh;
+}
+
+.CB {
+    /* width: 80%; */
+    /* height: 90px; */
+    padding: 8px 15px;
+    /* margin: 5% 15%; */
+    text-align: center;
+    border: 1px solid #eee;
+    border-radius: 10px ;
+    /* box-shadow: 0 2px 3px #ccc; */
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: #423a3d;
+    font-weight: bold;
+    font-size: 16px;
+    color: #72f1b6;
+}
+
+.CB:disabled {
+    /* color: rgb(37, 241, 146); */
+    opacity: .3;
+    cursor: not-allowed;
+}
+
+@media (min-width: 520px) {
+    .Sub {
+        width: 60%;
+    }
+
+    .PageSub{
+        min-height: 100vh;
+    }
+}

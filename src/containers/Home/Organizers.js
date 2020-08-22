@@ -1,74 +1,56 @@
 import React, {Component} from 'react';
-import {storage} from "../../firebase/firebase";
-import axios from 'axios';
+import Tile from '../../components/Tile/Tile'
+
+import './Organizers.css';
 
 class Organizers extends Component {
 
-	state = {
-		imageAsFile:null,
-		imageAsUrl:null,
-	}
-
-	componentDidMount() {
-
-	}
-	
-	inputChangedHandler = (event) =>{
-		const image = event.target.files[0]
-		this.setState({imageAsFile: image})
-	}
-
-	onSumbitHandler = (event) => {
-        event.preventDefault();
-		
-		if(this.state.imageAsFile === null ) {
-			console.error(`not an image, the image file is a ${typeof(this.state.imageAsFile)}`);
-		}
-        
-		const uploadTask = storage.ref(`/Speakers/${this.state.imageAsFile.name}`).put(this.state.imageAsFile);
-		
-		uploadTask.on('state_changed', 
-		(snapShot) => {
-			//takes a snap shot of the process as it is happening
-			console.log(snapShot)
-		}, (err) => {
-			//catches the errors
-			console.log(err)
-		}, () => {
-			// gets the functions from storage refences the image storage in firebase by the children
-			// gets the download url then sets the image from firebase as the value for the imgUrl key:
-			storage.ref('/Speakers').child(this.state.imageAsFile.name).getDownloadURL()
-			.then(fireBaseUrl => {
-				this.setState({imageAsUrl: fireBaseUrl});
-				console.log(fireBaseUrl);
-			})
-		})
-
+	tileSelectedHandler = (Name) => {
+        // this.props.history.push({pathname: '/posts/' + district + '/' + id});
     }
-
 	
-
-    render() {
-
-		let upimage = null;
-
-        if (this.state.imageAsUrl) {
-            upimage = <img src={this.state.imageAsUrl} alt="asdad" />
-		}
-		
-        return (
-			<div className="App">
-				<form onSubmit={this.onSumbitHandler}>
-					<input 
-						type="file"
-						onChange={this.inputChangedHandler}
+	render() {
+		return (
+			<div >
+				<div>
+					<h1 className="T2" >Organizing Committee</h1>
+				</div>
+				<div className="Organizers">
+					<Tile
+						Name="Hisni Mohammed" 
+						url="https://firebasestorage.googleapis.com/v0/b/ecsuop2020.appspot.com/o/Speakers%2F1c.jpg?alt=media&token=4db4b982-bf15-4819-89b9-d950805985e7"
+						Description="Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica"
+						clicked={ () => this.tileSelectedHandler("Name") }
 					/>
-					<button>Upload</button>
-				</form>
-				{upimage}
+					<Tile
+						Name="Suhail Sajahan" 
+						url="https://firebasestorage.googleapis.com/v0/b/ecsuop2020.appspot.com/o/Speakers%2F1c.jpg?alt=media&token=4db4b982-bf15-4819-89b9-d950805985e7"
+						Description="Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica"
+						clicked={ () => this.tileSelectedHandler("Name") }
+					/>
+					<Tile
+						Name="Mohamed Aslam" 
+						url="https://firebasestorage.googleapis.com/v0/b/ecsuop2020.appspot.com/o/Speakers%2F1c.jpg?alt=media&token=4db4b982-bf15-4819-89b9-d950805985e7"
+						Description="Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica"
+						clicked={ () => this.tileSelectedHandler("Name") }
+					/>
+					<Tile
+						Name="Cristina Ale" 
+						url="https://firebasestorage.googleapis.com/v0/b/ecsuop2020.appspot.com/o/Speakers%2FFemale.jpeg?alt=media&token=63c14303-c804-4945-978e-367bf9ff4982"
+						Description="Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica"
+						clicked={ () => this.tileSelectedHandler("Name") }
+					/>
+					<Tile
+						Name="Robert Lows" 
+						url="https://firebasestorage.googleapis.com/v0/b/ecsuop2020.appspot.com/o/Speakers%2FMale.png?alt=media&token=d234fca0-2fd8-4f76-b7f4-bfcc0fb5ba6b"
+						Description="Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica"
+						clicked={ () => this.tileSelectedHandler("Name") }
+					/>
+				</div>
 			</div>
-        );
-    }
+		);
+
+	}
 }
 
 export default Organizers;

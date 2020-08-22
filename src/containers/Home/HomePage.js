@@ -8,10 +8,10 @@ class HomePage extends Component {
 
 	state = {
 
-
 	}
 
 	componentDidMount() {
+		
     }
 
     render() {

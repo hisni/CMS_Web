@@ -12,6 +12,7 @@
 
 .Label {
     font-weight: bold;
+    font-size: 16px;
     display: block;
     margin-bottom: 8px;
     color: rgb(2, 61, 32)
@@ -29,6 +30,7 @@
     /* border: 1px solid #ccc; */
     /* background-color: rgb(0, 255, 200); */
     font: inherit;
+    font-size: 16px;
     padding: 6px 10px;
     display: block;
     /* width: 100%; */
