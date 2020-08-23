@@ -15,7 +15,7 @@
     font-size: 16px;
     display: block;
     margin-bottom: 8px;
-    color: rgb(2, 61, 32)
+    color: rgb(2, 61, 32);
 }
 
 .ClearMargrin {
@@ -33,6 +33,7 @@
     font-size: 16px;
     padding: 6px 10px;
     display: block;
+    height: 30px;
     /* width: 100%; */
     /* box-sizing: border-box; */
     color: rgb(2, 61, 32)
@@ -40,6 +41,22 @@
 
 .Input [type=file]{
     width: 230px;
+}
+
+.Input [type=date]{
+    width: 230px;
+    color: #72f1b6;
+    background-color: rgb(2, 61, 32);
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.Input [type=time]{
+    width: 230px;
+    color: #72f1b6;
+    background-color: rgb(2, 61, 32);
+    height: 30px;
+    margin-bottom: 10px;
 }
 
 .InputElement:focus {

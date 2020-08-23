@@ -1,0 +1,21 @@
+.InputElement {
+    /* width: 230px; */
+    /* color: #72f1b6; */
+    /* background-color: rgb(2, 61, 32); */
+    /* height: 30px; */
+    /* margin-bottom: 10px; */
+}
+
+.Label {
+    font-weight: bold;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 8px;
+    color: rgb(2, 61, 32);
+}
+
+.Input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}

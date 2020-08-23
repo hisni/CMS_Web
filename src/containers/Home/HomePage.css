@@ -21,8 +21,9 @@
 	align-items: center;
 }
 
-.Button {
-	width: 235px;
+.HPButton {
+    width: 235px;
+    height: 40px;
     text-align: center;
     text-decoration: none;
 	border-radius: 8px;
@@ -31,20 +32,20 @@
     outline: none;
     cursor: pointer;
     font: inherit;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     transition-duration: 0.4s;
-	padding: 15px 15px;
+	/* padding: 4px 4px; */
 	/* float: left; */
 	margin: 25px 30px;
 }
 
-.Button:hover {
+.HPButton:hover {
     background-color: #8b6977;
     color: #dbdfe7;
 }
 
-.Button:disabled {
+.HPButton:disabled {
     /* color: rgb(37, 241, 146); */
     opacity: .3;
 	cursor: not-allowed;
@@ -54,7 +55,7 @@
 	font-size: 70px;
 	font-weight: bolder;
 	color: #2a264b;
-	padding: 20px 0 40px 0;	
+	padding: 20px 0 20px 0;	
 
 }
 
@@ -62,7 +63,7 @@
 	font-size: 40px;
 	font-weight: bold;
 	color: #4d3e69;
-    padding: 0 0 20px 0;
+    padding: 0 0 10px 0;
     margin: 10px 0 0 0;
 }
 
@@ -74,17 +75,28 @@
 	font-size: 24px;
 	font-weight: bold;
 	color: #4b2626;
-    padding: 10px 0 10px 0;	
+    padding: 5px 0 5px 0;	
 }
 
 .Timer{
 	clear: both;
 	float: none;
-    padding: 40px 0;
+    padding: 20px 0;
 }
 
 .ButtonText{
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    /* margin-top: 20px; */
+    display: flex;
+    flex-flow: row wrap;
+    float: left;
+    width: 100%;
+    justify-content: center;
+}
+
+.PM {
+    display: flex;
+    flex-flow: row wrap;
 }
 /* 
 @media (min-width: 520px) {

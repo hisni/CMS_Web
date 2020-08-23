@@ -4,10 +4,11 @@ import axios from 'axios';
 
 import './Paper.css';
 import Input from '../../components/UI/Input/Input';
-import Button from '../../components/UI/Button/Button';
 // import AUX from '../../hoc/Auxiliary/Auxiliary';
 import { updateObject, checkValidity } from '../../shared/utility';
 import UserLayout from '../Profile/UserLayout';
+
+// import ViewPaper from './ViewPaper'
 
 class Paper extends Component {
 
@@ -71,7 +72,8 @@ class Paper extends Component {
         },
         submitted: false,
         formIsValid: false,
-        postID: null
+        postID: null,
+        FName:null,
     }
 
     inputChangedHandler = (event, PostIdentifier) =>{
@@ -118,13 +120,6 @@ class Paper extends Component {
         }
 
         const token = "Bearer "+ this.props.token;
-        
-        // const data = {
-        //     token: "Bearer "+ token,
-        //     submissionFile : this.state.PostForm.File.file,
-        //     subject_id: this.state.PostForm.SubjectID.value,
-        //     title:this.state.PostForm.Title.value,
-        // };
 
         console.log(token)
         const data = new FormData();
@@ -138,8 +133,10 @@ class Paper extends Component {
         
         axios.post(url, data, {headers: {'Content-Type': 'multipart/form-data', Authorization: token}} )
         .then( response => {                
-            console.log(response);
+            console.log(response.data.fileData.filename);
             this.setState({submitted:true});
+            this.setState({FName:response.data.fileData.filename});
+            
         }).catch(err => {
             console.log(err);
         });
@@ -168,11 +165,6 @@ class Paper extends Component {
                     changed={(event) => this.inputChangedHandler(event, formElement.id)} />
             ))
         );
-
-        let altForm = null;
-        if( this.state.submitted ){
-            
-        }
 
         return (
             <UserLayout>
