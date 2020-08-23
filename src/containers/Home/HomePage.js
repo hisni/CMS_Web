@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import './HomePage.css';
 import Countdown from '../Timer/Timer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarAlt, faMapMarkerAlt, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+// import { faCalendarAlt, faMapMarkerAlt, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarAlt, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+
 import Tile from '../../components/UI/Tile/Tile';
 
 class HomePage extends Component {
