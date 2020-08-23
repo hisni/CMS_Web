@@ -13,14 +13,14 @@ import Organizers from '../../containers/Home/Organizers';
 import Logout from '../../containers/Auth/Logout';
 import Profile from '../../containers/Profile/Profile';
 import Paper from '../../containers/Functions/Paper';
-import Users from '../../containers/Functions/Users';
+// import Users from '../../containers/Functions/Users';
 import Conferences from '../../containers/Functions/Page';
 import Submissions from '../../containers/Functions/Submissions';
 import EditConf from '../Profile/ConfFunctions/EditConf';
 import EditOrg from '../Profile/ConfFunctions/EditOrg';
 import EditSpk from '../Profile/ConfFunctions/EditSpk';
 
-
+import Users from '../../containers/Users/Users'
 import * as actions from '../../store/actions/index';
 
 class Main extends Component {
@@ -38,7 +38,8 @@ class Main extends Component {
                 <Route path="/register" exact component={Signup} />  
                 <Route path="/schedule" exact component={Schedule} />
                 <Route path="/speakers" exact component={Speakers} />
-                <Route path="/organizers" exact component={Organizers} />                                                           
+                <Route path="/organizers" exact component={Organizers} />
+                <Route path="/users" exact component={Users} />                                                           
                 <Redirect to="/" />
             </Switch>
         );
