@@ -1,0 +1,17 @@
+.row-content {
+    margin:0px auto;
+    padding: 10px 0px 50px 0px;
+    border-bottom: 1px ridge;
+    min-height:400px;
+}
+
+.users{
+    margin: 50px 0 50px 0;
+}
+
+.usertitle{
+	font-size: 35px;
+	font-weight: bolder;
+	color: #2a264b;
+    padding: 20px 0 40px 0;
+}
