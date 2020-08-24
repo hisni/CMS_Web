@@ -32,6 +32,15 @@
     width: 80%;
 }
 
+.InputComm {
+    width: 230px;
+    height: 70px;
+    color: #72f1b6;
+    background-color: rgb(2, 61, 32);
+    color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+}
+
 .RoleStyle{
     width: 700px;
     justify-content: center;

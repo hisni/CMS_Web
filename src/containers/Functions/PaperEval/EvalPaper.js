@@ -15,6 +15,7 @@ class AcceptPaper extends Component {
     state = {
         eval1: 0,
         eval2: 0,
+        comments:'',
         Data:null,
         submitted: false,
         formIsValid: true,
@@ -41,27 +42,27 @@ class AcceptPaper extends Component {
     saveDataHandler = (event) => {
 
         event.preventDefault();
+
+        let token=  "Bearer " + this.props.token;
+        let url = "ratings/"+this.state.Data.id;
         
         const data = {
-            eval1: this.state.eval1,
-            eval2: this.state.eval2,
+            completeness: this.state.eval1,
+            subject_knowledge: this.state.eval2,
+            comments: this.state.comments,
+            token: token
         };
 
-        // const data = this.state.Form.Status.value
-
         console.log(data)
+        console.log(url)
         
-        // let token=  "Bearer " + this.props.token;
-            
-        // let url = "submissions/status/"+this.state.Data.id;
-        
-        // axios.put(url, data, {headers: {Authorization: token}})
-        //     .then( response => {                
-        //         console.log(response)
-        //         this.setState({submitted:true});
-        //     }).catch(err => {
-        //         console.log(err);
-        //     });
+        axios.post(url, data, {headers: {Authorization: token}})
+            .then( response => {                
+                console.log(response)
+                this.setState({submitted:true});
+            }).catch(err => {
+                console.log(err);
+            });
 
     }
 
@@ -71,6 +72,10 @@ class AcceptPaper extends Component {
 
     eval2ChangedHandler = (event)=>{
         this.setState({eval2:event.target.value})
+    }
+
+    commentChangedHandler = (event)=>{
+        this.setState({comments:event.target.value})
     }
 
     render () {
@@ -122,6 +127,15 @@ class AcceptPaper extends Component {
                         placeholder='0.0'
                         value={this.state.eval2}
                         onChange={this.eval2ChangedHandler} />
+                </div>
+                <div className="rowIN">
+                    <label className="PLabel">Comments</label>
+                        <textarea
+                            className="InputComm"
+                            type='text'
+                            placeholder='Description'
+                            value={this.state.comments}
+                            onChange={this.commentChangedHandler} />;
                 </div>
             </Aux>
         );
