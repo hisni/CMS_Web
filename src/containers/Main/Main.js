@@ -14,6 +14,7 @@ import Logout from '../../containers/Auth/Logout';
 import Profile from '../../containers/Profile/Profile';
 import Paper from '../../containers/Functions/Paper';
 import Users from '../../containers/Functions/Users';
+import User from '../../containers/Functions/User';
 import ReviewPaper from '../../containers/Functions/ReviewPaper';
 import Conferences from '../Functions/Conferences';
 import Submissions from '../../containers/Functions/Submissions';
@@ -66,6 +67,7 @@ class Main extends Component {
                     <Route path="/dashboard/editconf" exact component={EditConf} />                         
                     <Route path="/dashboard/editspk" exact component={EditSpk} /> 
                     <Route path="/dashboard/editorg" exact component={EditOrg} />    
+                    <Route path="/dashboard/users/:uid" exact component={User} />
                     <Route path="/dashboard/editspk/:id" exact component={FullProfile} />                     
                     <Redirect to="/" />                        
                 </Switch>

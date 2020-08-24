@@ -25,3 +25,16 @@
 .Search{
     padding: 20px;
 }
+
+.UsTable{
+    margin: 10px 40px 25px 40px;
+}
+
+.changeClick{
+    color: rgb(61, 127, 250);
+}
+
+.changeClick:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

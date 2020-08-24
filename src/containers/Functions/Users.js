@@ -136,7 +136,12 @@ class Profile extends Component {
 	handleChangeRowsPerPage = (event) => {
 		this.setState({ rowsPerPage: parseInt(event.target.value, 10) })
 		this.setState({ page: 0 });
-    }
+	}
+	
+	clickedHandler = (uid)=>{
+		let path = '/dashboard/users/'+uid 
+		this.props.history.push({pathname: path});
+	}
     
     render(){
 		var rows = [];
@@ -164,56 +169,60 @@ class Profile extends Component {
 				<div className="Title">
 					<h1>Users</h1>                    
 				</div>
-				<Paper className={classes.root}>
-					<div className={classes.tableWrapper}>
-						<Table className={classes.table}>
-						<TableHead>
-							<TableRow>
-								<TableCell>First Name</TableCell>
-								<TableCell align="right">Last Name</TableCell>
-								<TableCell align="right">Email</TableCell>
-								<TableCell align="right">Country Code</TableCell>
-                                <TableCell align="right">Change Role</TableCell>
-							</TableRow>
-						</TableHead>
-						<TableBody>
-							{rows.slice(this.state.page * this.state.rowsPerPage, this.state.page * this.state.rowsPerPage + this.state.rowsPerPage).map(row => (
-							<TableRow key={row.TT}>
-								<TableCell component="th" scope="row">{row.FN}</TableCell>
-								<TableCell align="right">{row.LN}</TableCell>
-								<TableCell align="right">{row.EM}</TableCell>
-								<TableCell align="right">{row.CC}</TableCell>
-                                <TableCell align="right"><a href="/change">Change</a></TableCell>
-							</TableRow>
-							))}
+				<div className="UsTable">
+					<Paper className={classes.root}>
+						<div className={classes.tableWrapper}>
+							<Table className={classes.table}>
+							<TableHead>
+								<TableRow>
+									<TableCell>First Name</TableCell>
+									<TableCell align="right">Last Name</TableCell>
+									<TableCell align="right">Email</TableCell>
+									<TableCell align="right">Change Role</TableCell>
+								</TableRow>
+							</TableHead>
+							<TableBody>
+								{rows.slice(this.state.page * this.state.rowsPerPage, this.state.page * this.state.rowsPerPage + this.state.rowsPerPage).map(row => (
+								<TableRow key={row.TT}>
+									<TableCell component="th" scope="row">{row.FN}</TableCell>
+									<TableCell align="right">{row.LN}</TableCell>
+									<TableCell align="right">{row.EM}</TableCell>
+									<TableCell align="right">
+										<article onClick={() => this.clickedHandler(row.ID)}>
+											<p className="changeClick" >Change</p>
+										</article>	
+									</TableCell>
+								</TableRow>
+								))}
 
-							{emptyRows > 0 && (
-							<TableRow style={{ height: 48 * emptyRows }}>
-								<TableCell colSpan={6} />
-							</TableRow>
-							)}
-						</TableBody>
-						<TableFooter>
-							<TableRow>
-							<TablePagination
-								rowsPerPageOptions={[5, 10, 25]}
-								colSpan={3}
-								count={rows.length}
-								rowsPerPage={this.state.rowsPerPage}
-								page={this.state.page}
-								SelectProps={{
-								inputProps: { 'aria-label': 'rows per page' },
-								native: true,
-								}}
-								onChangePage={this.handleChangePage}
-								onChangeRowsPerPage={this.handleChangeRowsPerPage}
-								ActionsComponent={TablePaginationActions}
-							/>
-							</TableRow>
-						</TableFooter>
-						</Table>
-					</div>
-				</Paper>
+								{emptyRows > 0 && (
+								<TableRow style={{ height: 48 * emptyRows }}>
+									<TableCell colSpan={6} />
+								</TableRow>
+								)}
+							</TableBody>
+							<TableFooter>
+								<TableRow>
+								<TablePagination
+									rowsPerPageOptions={[5, 10, 25]}
+									colSpan={3}
+									count={rows.length}
+									rowsPerPage={this.state.rowsPerPage}
+									page={this.state.page}
+									SelectProps={{
+									inputProps: { 'aria-label': 'rows per page' },
+									native: true,
+									}}
+									onChangePage={this.handleChangePage}
+									onChangeRowsPerPage={this.handleChangeRowsPerPage}
+									ActionsComponent={TablePaginationActions}
+								/>
+								</TableRow>
+							</TableFooter>
+							</Table>
+						</div>
+					</Paper>
+				</div>
 			</UserLayout>
 		);
 	}
