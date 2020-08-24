@@ -152,12 +152,15 @@ class Profile extends Component {
                     FN: post.first_name,
                     LN: post.last_name,
                     EM: post.email,
-                    CC: post.country_code
+					CC: post.country_code,
+					UR: post.user_role
                 });
                 return null;
             });
 		}
 		
+		// rows = rows.slice(-25);
+
 		const emptyRows = this.state.rowsPerPage - Math.min(this.state.rowsPerPage, rows.length - this.state.page * this.state.rowsPerPage);
 
 		const classes = this.props;
@@ -178,6 +181,7 @@ class Profile extends Component {
 									<TableCell>First Name</TableCell>
 									<TableCell align="right">Last Name</TableCell>
 									<TableCell align="right">Email</TableCell>
+									<TableCell align="right">Role</TableCell>
 									<TableCell align="right">Change Role</TableCell>
 								</TableRow>
 							</TableHead>
@@ -187,6 +191,7 @@ class Profile extends Component {
 									<TableCell component="th" scope="row">{row.FN}</TableCell>
 									<TableCell align="right">{row.LN}</TableCell>
 									<TableCell align="right">{row.EM}</TableCell>
+									<TableCell align="right">{row.UR}</TableCell>
 									<TableCell align="right">
 										<article onClick={() => this.clickedHandler(row.ID)}>
 											<p className="changeClick" >Change</p>
