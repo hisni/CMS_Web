@@ -90,6 +90,24 @@ class Profile extends Component {
             )
         }
 
+        var controls = null;
+
+        if( this.props.Role === "Admin" || this.props.Role === "SuperAdmin" ){
+            controls = (
+                <div className="Controls">
+                    <Tile 
+                        title={'Edit Conference'}
+                        clicked={() => this.postSelectedHandler('Edit')}/>
+                    <Tile 
+                        title={'Speakers'}
+                        clicked={() => this.postSelectedHandler('Speakers')}/>
+                    <Tile 
+                        title={'Organizers'}
+                        clicked={() => this.postSelectedHandler('Organizers')}/> 
+                </div>
+            )
+        }
+
         var profile = (
             <UserLayout>
                 <div className="Profile">
@@ -101,17 +119,7 @@ class Profile extends Component {
                     </div>
                     <div>
                         <section className="ProfileMangement">
-                            <div className="Controls">
-                                <Tile 
-                                    title={'Edit Conference'}
-                                    clicked={() => this.postSelectedHandler('Edit')}/>
-                                <Tile 
-                                    title={'Speakers'}
-                                    clicked={() => this.postSelectedHandler('Speakers')}/>
-                                <Tile 
-                                    title={'Organizers'}
-                                    clicked={() => this.postSelectedHandler('Organizers')}/> 
-                            </div>
+                            {controls}
                         </section>
                     </div>
                 </div>

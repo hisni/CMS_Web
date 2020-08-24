@@ -21,7 +21,7 @@ const SidebarItems = (props) => {
     }else if( props.role === "Author" ){
         outputEl = 
             <Aux>
-                <SidebarItem link="/userdashboard" >Overview</SidebarItem>
+                <SidebarItem link="/dashboard" >Overview</SidebarItem>
                 <SidebarItem link="/dashboard/submitpaper" >Submit Paper</SidebarItem>
                 <SidebarItem link="/dashboard/review" >Review Papers</SidebarItem>
                 <SidebarItem link="/dashboard/submissions" >Submissions</SidebarItem>
@@ -30,7 +30,7 @@ const SidebarItems = (props) => {
     }else if( props.role === "Reviewer" ){
         outputEl = 
             <Aux>
-                <SidebarItem link="/userdashboard" >Overview</SidebarItem>
+                <SidebarItem link="/dashboard" >Overview</SidebarItem>
                 <SidebarItem link="/dashboard/review" >Review Papers</SidebarItem>
                 <SidebarItem link="/dashboard/submissions" >Submissions</SidebarItem>
                 <SidebarItem link="/dashboard/register" >Register</SidebarItem>
