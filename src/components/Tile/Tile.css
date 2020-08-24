@@ -9,7 +9,7 @@
 
 .CardTile {
     /* width: 350px; */
-    height: 415px;
+    height: auto;
     padding: 15px 0;
     margin: 10px 10px;
     text-align: center;

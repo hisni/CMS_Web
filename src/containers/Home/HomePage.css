@@ -1,20 +1,3 @@
-/* .ints{
-    width: 45%;
-    float: left;
-}
-
-.bg {
-    background-image: url("../../assets/images/Map-min.png");
-    height: 450px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; 
-}
-
-.bg::after {
-    display: block;
-} */
-
 .Home {
     margin: 0 auto;
 	min-height: 50vh;
@@ -55,7 +38,7 @@
 	font-size: 70px;
 	font-weight: bolder;
 	color: #2a264b;
-	padding: 20px 0 20px 0;	
+	padding: 20px 0 40px 0;	
 
 }
 
@@ -63,7 +46,7 @@
 	font-size: 40px;
 	font-weight: bold;
 	color: #4d3e69;
-    padding: 0 0 10px 0;
+    padding: 0 0 20px 0;
     margin: 10px 0 0 0;
 }
 
@@ -75,7 +58,7 @@
 	font-size: 24px;
 	font-weight: bold;
 	color: #4b2626;
-    padding: 5px 0 5px 0;	
+    padding: 5px 0 15px 0;	
 }
 
 .Timer{
@@ -85,7 +68,7 @@
 }
 
 .ButtonText{
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     /* margin-top: 20px; */
     display: flex;
     flex-flow: row wrap;

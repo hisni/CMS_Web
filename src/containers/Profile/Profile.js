@@ -18,11 +18,21 @@ class Profile extends Component {
 
     componentDidMount(){
         // this.props.onTryAutoSignup();
-        let url = "https://ecsuop2020.firebaseio.com/ConferenceDetails.json";
+        let url = "https://ecsuop2020.firebaseio.com/ConferenceDetails/Info.json";
         
         axios.get( url)
         .then( response => {
-            this.setState({Data: response.data});
+            const fetchedData = [];
+            for(let key in response.data){
+                fetchedData.push({
+                    ...response.data[key],
+                    id: key
+                });
+            }
+            this.setState({Data: fetchedData});
+
+            // console.log(this.state.Data);
+            
         }).catch(err => {
             console.log(err);
         });
@@ -48,17 +58,33 @@ class Profile extends Component {
         var ConDetails = <Spinner/>;
 
         if( this.state.Data ){
-            const data = this.state.Data;
+            var data = [];
+            this.state.Data.map(d => {
+                data.push({
+                    title: d.Title,
+                    venue: d.Venue,
+                    date: d.Date,
+                    time: d.Time,
+                    seats: d.Seats,
+                    submissions: d.Submissions,
+                    accepted: d.Accepted,
+                });
+                return null;
+            });
+        
+            data = data.slice(-1)[0];
+
+            console.log(data);
 
             ConDetails = (
                 <AUX>
                     <div  className="Name">
-                        <h1>{data.Name}</h1>
-                        <h1>Date: {data.Date}</h1>
-                        <h1>Time: {data.Time} GMT</h1>
-                        <h1>Venue: {data.Venue}</h1>
-                        <h1>Submissions: {data.Submissions} Accepted: {data.Accepted}</h1>
-                        <h1>Seats Available: {data.Seats}</h1>
+                        <h1>{data.title}</h1>
+                        <h1>Date: {data.date}</h1>
+                        <h1>Time: {data.time} GMT</h1>
+                        <h1>Venue: {data.venue}</h1>
+                        <h1>Submissions: {data.submissions} Accepted: {data.accepted}</h1>
+                        <h1>Seats Available: {data.seats}</h1>
                     </div>
                 </AUX>
             )

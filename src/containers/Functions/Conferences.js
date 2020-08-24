@@ -160,6 +160,9 @@ class Page extends Component {
 
 		return (
 			<UserLayout>
+				<div className="Title">
+					<h1>Conferences</h1>                    
+				</div>
 				<Paper className={classes.root}>
 					<div className={classes.tableWrapper}>
 						<Table className={classes.table}>

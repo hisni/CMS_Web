@@ -72,13 +72,13 @@ class EditConf extends Component {
 
     onDateChangeHandler = (event)=>{
         // console.log(this.state.DateValue);
-        console.log(event);
+        // console.log(event);
         this.setState({DateValue: event});
     }
 
     onTimeChangeHandler = (event)=>{
         // console.log(this.state.DateValue);
-        console.log(event);
+        // console.log(event[0]);
         this.setState({TimeValue: event});
     }
 
@@ -86,28 +86,39 @@ class EditConf extends Component {
     saveDataHandler = (event) => {
 
         event.preventDefault();
-        const formData = {};
-        for(let formIdentifier in this.state.Form ){
-            formData[formIdentifier] = this.state.Form[formIdentifier].value;
-        }
-
-        console.log(this.state.Form)
-
         // const token = this.props.tokenID;
         // const ID = this.props.userID
 
-        // const data = {
-        //     UID: ID,
-        //     District: formData.District,
-        //     postData : formData
-        // };
-        
-        // axios.post('/Posts.json?auth=' + token ,data)
-        //     .then( response => {                
-        //         this.setState({submitted:true, postID:response.data.name});
-        //     });
+        let map = ["January", "February", "March", "April", "May", "June",
+                     "July", "August", "September", "October", "November", "December"]
 
-        this.setState({submitted:true});
+        let month = this.state.DateValue.getMonth();
+        let day = this.state.DateValue.getDate();
+        let year = this.state.DateValue.getFullYear();
+        
+        let t = this.state.TimeValue;
+        let time = t[0] + t[1] + " " + t[3] + t[4] + " AM";
+
+        const data = {
+            Title: this.state.Form.Title.value,
+            Venue : this.state.Form.Venue.value,
+            Date: day +" " + map[month] + " " + year,
+            Time: time,
+            Seats: 750,
+            Submissions: 12,
+            Accepted: 4,
+        };
+
+        console.log(data)
+        
+        axios.post('https://ecsuop2020.firebaseio.com/ConferenceDetails/Info.json', data)
+            .then( response => {                
+                this.setState({submitted:true});
+            }).catch(err => {
+                console.log(err);
+            });
+
+        // this.setState({submitted:true});
 
     }
 
@@ -163,8 +174,6 @@ class EditConf extends Component {
                                 value={this.state.TimeValue}
                             />
                         </div>
-                        
-                        
                         <button className="CB" disabled={!this.state.formIsValid} >Save</button>
                     </form>
                 </div>

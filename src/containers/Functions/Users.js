@@ -161,6 +161,9 @@ class Profile extends Component {
 
 		return (
 			<UserLayout>
+				<div className="Title">
+					<h1>Users</h1>                    
+				</div>
 				<Paper className={classes.root}>
 					<div className={classes.tableWrapper}>
 						<Table className={classes.table}>

@@ -1,0 +1,75 @@
+.TitleNew {
+    height: 50px;
+    text-align: center;
+    padding: 0 25px;
+    margin: 15px 105px;
+    color: #22134e;
+    font-weight: bold;
+    font-size: 24px;
+    border-bottom: 5px solid #423a3d;
+    width: 80%;
+}
+
+.Label {
+    font-weight: bold;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 8px;
+    color: rgb(2, 61, 32);
+}
+
+.Input {
+    width: 100%;
+    padding: 15px 0;
+    box-sizing: border-box;
+}
+
+.CBN {
+    margin-bottom: 20px;
+    width: 90px;
+    height: 40px;
+    padding: 8px 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    box-shadow: 0 2px 3px #ccc;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: #423a3d;
+    font-weight: bold;
+    font-size: 16px;
+    color: #72f1b6;
+}
+
+.CBN {
+    margin-bottom: 20px;
+    width: 90px;
+    height: 40px;
+    padding: 8px 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    box-shadow: 0 2px 3px #ccc;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: #423a3d;
+    font-weight: bold;
+    font-size: 16px;
+    color: #72f1b6;
+}
+
+.CBN:hover{
+    background-color: #796f73;
+}
+
+.NameList {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 45px;
+}

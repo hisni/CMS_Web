@@ -54,7 +54,7 @@ class HomePage extends Component {
 							title={"Call for Papers"}
 							clicked={() => this.postSelectedHandler('papers')}/>
 						<Tile 
-							title={'Register'}
+							title={'Buy Ticket'}
 							clicked={() => this.postSelectedHandler('Register')}/>
 					</div>
 				</section>

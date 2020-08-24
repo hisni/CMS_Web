@@ -1,0 +1,25 @@
+.Post {
+    width: 200px;
+    height: 30px;
+    padding: 4px 0;
+    text-align: center;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    margin: 4px 2px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #423a3d;
+    color: #72f1b6;
+    font-size: 15px;
+}
+
+.Post:hover,
+.Post:active {
+    opacity: 0.6;
+}
+
+.Info {
+    margin: 16px 0;
+    color: rgb(22, 82, 57);
+}
