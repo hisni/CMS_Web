@@ -33,7 +33,7 @@
     font-size: 15px;
     padding: 6px 10px;
     display: block;
-    height: 30px;
+    height: 35px;
     /* width: 100%; */
     /* box-sizing: border-box; */
 }
@@ -41,7 +41,6 @@
 .Input [type=file]{
     width: 230px;
 }
-
 
 .Input [type=text]{
     width: 230px;
@@ -56,6 +55,14 @@
     height: 50px;
     color: #72f1b6;
      /* padding: 6px 10px; */
+    background-color: rgb(2, 61, 32);
+    color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+}
+
+select {
+    width: 20px;
+    /* height: 500px; */
     background-color: rgb(2, 61, 32);
     color: rgb(255, 255, 255);
     margin-bottom: 10px;
