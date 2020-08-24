@@ -109,7 +109,7 @@ class Signup extends Component {
             Email: this.state.controls.Email.value,
             Password: hash,
             Firstname: this.state.controls.Firstname.value,
-            Lastname: this.state.controls.LAstname.value,
+            Lastname: this.state.controls.Lastname.value,
         }
         this.props.onAuth( data, this.state.isSignup );
     }
