@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Document, Page } from 'react-pdf';
 import axios from 'axios';
+import AUX from '../../hoc/Auxiliary/Auxiliary';
  
 class ViewPaper extends Component {
 
@@ -32,19 +32,17 @@ class ViewPaper extends Component {
 
         let resPDF = null;
         if( this.state.filePath ){
-            resPDF = <embed src="localhost:3000/submissions/159811121813615318431.pdf" width="100%" height="600px" />
+            console.log( "true" ); 
+            resPDF = (
+                <AUX>
+                    <embed src="http://localhost:3000/submissions/159826451330715318431.pdf" width="800px" height="1160px" ></embed>
+                </AUX>
+            )
         }
 
         return (
             <div>
                 {resPDF}
-            {/* <Document
-                file="localhost:3000/submissions/159811121813615318431.pdf"
-                onLoadSuccess={this.onDocumentLoadSuccess}
-            >
-                <Page pageNumber={this.state.pageNumber} />
-            </Document>
-            <p>Page {this.state.pageNumber} of {this.state.numPages}</p> */}
             </div>
         );
     }

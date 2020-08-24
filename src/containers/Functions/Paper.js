@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 import './Paper.css';
 import Input from '../../components/UI/Input/Input';
@@ -8,7 +9,6 @@ import Input from '../../components/UI/Input/Input';
 import { updateObject, checkValidity } from '../../shared/utility';
 import UserLayout from '../Profile/UserLayout';
 
-// import ViewPaper from './ViewPaper'
 
 class Paper extends Component {
 
@@ -144,6 +144,13 @@ class Paper extends Component {
     }
 
     render() {
+
+        let redirect = null;
+        
+        if( this.state.submitted ){
+            redirect = <Redirect to={"/dashboard"}/>
+        }
+
         const formElementsArray = [];
         for (let key in this.state.PostForm) {
             formElementsArray.push({
@@ -173,7 +180,7 @@ class Paper extends Component {
                             <h1>Submit a Paper</h1>                    
                         </div>
                     <div className="Sub">
-                        {/* {redirect} */}
+                        {redirect}
                         <form onSubmit={this.postDataHandler} encType="multipart/form-data">
                             {form}
                             <button className="CB" disabled={!this.state.formIsValid} >Submit</button>

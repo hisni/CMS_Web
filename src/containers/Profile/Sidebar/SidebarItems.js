@@ -22,17 +22,17 @@ const SidebarItems = (props) => {
         outputEl = 
             <Aux>
                 <SidebarItem link="/dashboard" >Overview</SidebarItem>
+                <SidebarItem link="/dashboard/mysubmissions" >My Submissions</SidebarItem>
                 <SidebarItem link="/dashboard/submitpaper" >Submit Paper</SidebarItem>
-                <SidebarItem link="/dashboard/review" >Review Papers</SidebarItem>
-                <SidebarItem link="/dashboard/submissions" >Submissions</SidebarItem>
                 <SidebarItem link="/dashboard/register" >Register</SidebarItem>
             </Aux>
     }else if( props.role === "Reviewer" ){
         outputEl = 
             <Aux>
                 <SidebarItem link="/dashboard" >Overview</SidebarItem>
+                <SidebarItem link="/dashboard/mysubmissions" >My Submissions</SidebarItem>
+                <SidebarItem link="/dashboard/submitpaper" >Submit Paper</SidebarItem>
                 <SidebarItem link="/dashboard/review" >Review Papers</SidebarItem>
-                <SidebarItem link="/dashboard/submissions" >Submissions</SidebarItem>
                 <SidebarItem link="/dashboard/register" >Register</SidebarItem>
             </Aux>
     }

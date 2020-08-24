@@ -20,7 +20,8 @@ import Submissions from '../../containers/Functions/Submissions';
 import EditConf from '../Profile/ConfFunctions/EditConf';
 import EditOrg from '../Profile/ConfFunctions/EditOrg';
 import EditSpk from '../Profile/ConfFunctions/EditSpk';
-import FullProfile from '../Profile/ConfFunctions/FullProfile'
+import FullProfile from '../Profile/ConfFunctions/FullProfile';
+import MyPapers from '../Functions/MyPapers';
 
 // import Users from '../../containers/Users/Users'
 import * as actions from '../../store/actions/index';
@@ -60,6 +61,7 @@ class Main extends Component {
                     <Route path="/dashboard/users" exact component={Users} />  
                     <Route path="/dashboard/conferences" exact component={Conferences} />                         
                     <Route path="/dashboard/submissions" exact component={Submissions} />
+                    <Route path="/dashboard/mysubmissions" exact component={MyPapers} />
                     <Route path="/dashboard/review" exact component={ReviewPaper} /> 
                     <Route path="/dashboard/editconf" exact component={EditConf} />                         
                     <Route path="/dashboard/editspk" exact component={EditSpk} /> 
