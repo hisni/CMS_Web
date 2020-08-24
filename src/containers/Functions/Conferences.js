@@ -17,6 +17,7 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import UserLayout from '../Profile/UserLayout';
+import './Conferences.css'
 
 const useStyles1 = makeStyles(theme => ({
 	root: {
@@ -163,60 +164,62 @@ class Page extends Component {
 				<div className="Title">
 					<h1>Conferences</h1>                    
 				</div>
-				<Paper className={classes.root}>
-					<div className={classes.tableWrapper}>
-						<Table className={classes.table}>
-						<TableHead>
-							<TableRow>
-								<TableCell>Title</TableCell>
-								<TableCell align="right">Description</TableCell>
-								<TableCell align="right">Date</TableCell>
-								<TableCell align="right">Venue</TableCell>
-								<TableCell align="right">Total Seats</TableCell>
-								<TableCell align="right">Available Seats</TableCell>
-							</TableRow>
-						</TableHead>
-						<TableBody>
-							{rows.slice(this.state.page * this.state.rowsPerPage, this.state.page * this.state.rowsPerPage + this.state.rowsPerPage).map(row => (
-							<TableRow key={row.TT}>
-								<TableCell component="th" scope="row">
-								{row.TT}
-								</TableCell>
-								<TableCell align="right">{row.DE}</TableCell>
-								<TableCell align="right">{row.DA}</TableCell>
-								<TableCell align="right">{row.VN}</TableCell>
-								<TableCell align="right">{row.ST}</TableCell>
-								<TableCell align="right">{row.AS}</TableCell>
-							</TableRow>
-							))}
+				<div className="ConTable">
+					<Paper className={classes.root}>
+						<div className={classes.tableWrapper}>
+							<Table className={classes.table}>
+							<TableHead>
+								<TableRow>
+									<TableCell>Title</TableCell>
+									<TableCell align="right">Description</TableCell>
+									<TableCell align="right">Date</TableCell>
+									<TableCell align="right">Venue</TableCell>
+									<TableCell align="right">Total Seats</TableCell>
+									<TableCell align="right">Available Seats</TableCell>
+								</TableRow>
+							</TableHead>
+							<TableBody>
+								{rows.slice(this.state.page * this.state.rowsPerPage, this.state.page * this.state.rowsPerPage + this.state.rowsPerPage).map(row => (
+								<TableRow key={row.TT}>
+									<TableCell component="th" scope="row">
+									{row.TT}
+									</TableCell>
+									<TableCell align="right">{row.DE}</TableCell>
+									<TableCell align="right">{row.DA}</TableCell>
+									<TableCell align="right">{row.VN}</TableCell>
+									<TableCell align="right">{row.ST}</TableCell>
+									<TableCell align="right">{row.AS}</TableCell>
+								</TableRow>
+								))}
 
-							{emptyRows > 0 && (
-							<TableRow style={{ height: 48 * emptyRows }}>
-								<TableCell colSpan={6} />
-							</TableRow>
-							)}
-						</TableBody>
-						<TableFooter>
-							<TableRow>
-							<TablePagination
-								rowsPerPageOptions={[5, 10, 25]}
-								colSpan={3}
-								count={rows.length}
-								rowsPerPage={this.state.rowsPerPage}
-								page={this.state.page}
-								SelectProps={{
-								inputProps: { 'aria-label': 'rows per page' },
-								native: true,
-								}}
-								onChangePage={this.handleChangePage}
-								onChangeRowsPerPage={this.handleChangeRowsPerPage}
-								ActionsComponent={TablePaginationActions}
-							/>
-							</TableRow>
-						</TableFooter>
-						</Table>
-					</div>
-				</Paper>
+								{emptyRows > 0 && (
+								<TableRow style={{ height: 48 * emptyRows }}>
+									<TableCell colSpan={6} />
+								</TableRow>
+								)}
+							</TableBody>
+							<TableFooter>
+								<TableRow>
+								<TablePagination
+									rowsPerPageOptions={[5, 10, 25]}
+									colSpan={3}
+									count={rows.length}
+									rowsPerPage={this.state.rowsPerPage}
+									page={this.state.page}
+									SelectProps={{
+									inputProps: { 'aria-label': 'rows per page' },
+									native: true,
+									}}
+									onChangePage={this.handleChangePage}
+									onChangeRowsPerPage={this.handleChangeRowsPerPage}
+									ActionsComponent={TablePaginationActions}
+								/>
+								</TableRow>
+							</TableFooter>
+							</Table>
+						</div>
+					</Paper>
+				</div>
 			</UserLayout>
 		);
 	}
