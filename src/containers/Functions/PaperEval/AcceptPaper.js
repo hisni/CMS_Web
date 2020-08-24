@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import UserLayout from '../Profile/UserLayout';
+import UserLayout from '../../Profile/UserLayout';
 import { Redirect } from 'react-router-dom';
 
-import './User.css';
-import Aux from '../../hoc/Auxiliary/Auxiliary';
-import Input from '../../components/UI/Input/Input';
-import { updateObject, checkValidity } from '../../shared/utility';
-import Spinner from '../../components/UI/Spinner/Spinner'
+import './AcceptPaper.css';
+import Aux from '../../../hoc/Auxiliary/Auxiliary';
+import Input from '../../../components/UI/Input/Input';
+import { updateObject, checkValidity } from '../../../shared/utility';
+import Spinner from '../../../components/UI/Spinner/Spinner';
+import ViewPaper from '../../../components/ViewPaper/ViewPaper';
 
-
-class User extends Component {
+class AcceptPaper extends Component {
     state = {
         Form: {
-            NewRole: {
+            Status: {
                 elementType: 'select',
                 elementConfig: {
                     options: [
-                        {value: 'Author', displayValue: 'Author'},
-                        {value: 'Reviewer', displayValue: 'Reviewer'},
-                        {value: 'Admin', displayValue: 'Admin'},
+                        {value: 'pending', displayValue: 'Pending'},
+                        {value: 'approved', displayValue: 'Approve'},
+                        {value: 'rejected', displayValue: 'Reject'},
                     ]
                 },
                 value: '',
@@ -34,16 +34,17 @@ class User extends Component {
     }
 
     componentDidMount() {
-        if ( this.props.match.params.uid ) {
-            console.log(this.props.match.params.uid);
+        if ( this.props.match.params.sid ) {
+            console.log(this.props.match.params.sid);
             let token=  "Bearer " + this.props.token;
             
-            let url = "userdata/users/" + this.props.match.params.uid;
-            // console.log(url)
+            let url = "submissions/" + this.props.match.params.sid;
+            console.log(url)
             axios.get(url, {headers: {Authorization: token}} )
             .then( response => {                
-                this.setState({Data:response.data.result[0]})
+                this.setState({Data:response.data.submission[0]})
                 console.log(this.state.Data)
+                
             }).catch(err => {
                 console.log(err);
             });
@@ -72,17 +73,18 @@ class User extends Component {
 
         event.preventDefault();
         
-
         const data = {
-            userId: this.state.Data.id,
-            role : this.state.Form.NewRole.value,
+            submissionId: this.state.Data.id,
+            status : this.state.Form.Status.value,
         };
+
+        // const data = this.state.Form.Status.value
 
         console.log(data)
         
         let token=  "Bearer " + this.props.token;
             
-        let url = "userdata/roles";
+        let url = "submissions/status/"+this.state.Data.id;
         
         axios.put(url, data, {headers: {Authorization: token}})
             .then( response => {                
@@ -99,21 +101,27 @@ class User extends Component {
         let redirect = null;
         
         if( this.state.submitted ){
-            redirect = <Redirect to={"/dashboard/users"}/>
+            redirect = <Redirect to={"/dashboard/submissions"}/>
         }
 
         let details = <Spinner />;
+        let paper = null;
         if( this.state.Data ){
             let data = this.state.Data;
             details = (
                 <Aux>
                     <div  className="Name">
-                        <h1>{data.first_name + " " +data.last_name }</h1>
-                        <h1>Email: {data.email}</h1>
-                        <h1>Country Code: {data.country_ode}</h1>
-                        <h1>Current Role: {data.user_role}</h1>
+                        <h1>{data.title }</h1>
+                        <h1>Subject ID: {data.subject_id}</h1>
+                        <h1>Current Status: {data.status}</h1>
                     </div>
                 </Aux>
+            )
+
+            paper = (
+                <ViewPaper 
+                    url={this.state.Data.file}
+                />
             )
         }
 
@@ -143,7 +151,7 @@ class User extends Component {
             <Aux>
                 <UserLayout>
                     <div className="Title">
-                        <h1>Change Users Role</h1>                    
+                        <h1>Accept/Reject Paper</h1>                    
                     </div>
                     <div>
                         {redirect}
@@ -154,6 +162,9 @@ class User extends Component {
                             {form}
                             <button className="CB" disabled={!this.state.formIsValid} >Change</button>
                         </form>
+                    </div>
+                    <div className="PaperView">
+                        {paper}
                     </div>
                 </UserLayout>
             </Aux>
@@ -168,4 +179,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(User);
+export default connect(mapStateToProps)(AcceptPaper);

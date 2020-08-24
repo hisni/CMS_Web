@@ -18,6 +18,8 @@ import User from '../../containers/Functions/User';
 import ReviewPaper from '../../containers/Functions/ReviewPaper';
 import Conferences from '../Functions/Conferences';
 import Submissions from '../../containers/Functions/Submissions';
+import AcceptPaper from '../Functions/PaperEval/AcceptPaper';
+import EvalPaper from '../Functions/PaperEval/EvalPaper';
 import EditConf from '../Profile/ConfFunctions/EditConf';
 import EditOrg from '../Profile/ConfFunctions/EditOrg';
 import EditSpk from '../Profile/ConfFunctions/EditSpk';
@@ -66,7 +68,9 @@ class Main extends Component {
                     <Route path="/dashboard/review" exact component={ReviewPaper} /> 
                     <Route path="/dashboard/editconf" exact component={EditConf} />                         
                     <Route path="/dashboard/editspk" exact component={EditSpk} /> 
-                    <Route path="/dashboard/editorg" exact component={EditOrg} />    
+                    <Route path="/dashboard/editorg" exact component={EditOrg} />
+                    <Route path="/dashboard/submissions/:sid" exact component={AcceptPaper} />    
+                    <Route path="/dashboard/review/:rpid" exact component={EvalPaper} />    
                     <Route path="/dashboard/users/:uid" exact component={User} />
                     <Route path="/dashboard/editspk/:id" exact component={FullProfile} />                     
                     <Redirect to="/" />                        

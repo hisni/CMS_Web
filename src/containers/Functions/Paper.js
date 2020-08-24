@@ -127,6 +127,8 @@ class Paper extends Component {
         data.append('token', token);
         data.append('subject_id', this.state.PostForm.SubjectID.value);
         data.append('title', this.state.PostForm.Title.value);
+        data.append('co_authors', this.state.PostForm.Authors.value);
+
 
         console.log(data);
         let url = 'uploadfile';

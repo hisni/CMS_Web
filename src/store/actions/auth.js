@@ -110,7 +110,22 @@ export const authSignUp = ( data ) => {
 
         axios.post(url,authData)
         .then(response => {
-            dispatch(signUpSuccess());
+            console.log(response);
+            let url = 'userdata/roles';
+            let token = "Bearer " + response.data.token;
+
+            let data = {
+                token: "Bearer " + response.data.token,
+            }
+            
+            axios.post(url, data, {headers: {Authorization: token}})
+            .then(response => {
+                dispatch(signUpSuccess());
+            })
+            .catch(err => {
+                console.log("Error");
+                // dispatch(authFail(err.response.data.error));
+            });
         })
         .catch(err => {
             console.log("Error");

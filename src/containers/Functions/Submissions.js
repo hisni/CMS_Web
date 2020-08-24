@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
-import './Users.css';
+import './Submissions.css';
 import AUX from '../../hoc/Auxiliary/Auxiliary';
 import UserLayout from '../Profile/UserLayout';
 import PropTypes from 'prop-types';
@@ -111,25 +111,25 @@ class Submissions extends Component {
     componentDidMount(){
         // this.props.onTryAutoSignup();
 
-        const tokenData = {
-            token: this.props.token
-        };
+        // const tokenData = {
+        //     token: this.props.token
+        // };
 
-        axios.get( 'submissions/conference/101',tokenData )
+        axios.get( 'submissions/latest' )
         .then( response => {
             
-            console.log(response);
-
             const fetchedPosts = [];
-            for(let key in response.data.submissions){
+            for(let key in response.data.result){
                 fetchedPosts.push({
-                    ...response.data.submissions[key],
-                    id: key
+                    ...response.data.result[key],
                 });
             }
             this.setState({Data: fetchedPosts});
-            // console.log(this.state.Data);
-        } );
+            
+        }).catch(err => {
+            console.log(err);
+        });
+        
     }
 
     handleChangePage = (event, newPage) => {
@@ -139,6 +139,11 @@ class Submissions extends Component {
 	handleChangeRowsPerPage = (event) => {
 		this.setState({ rowsPerPage: parseInt(event.target.value, 10) })
 		this.setState({ page: 0 });
+    }
+    
+    clickedHandler = (uid)=>{
+		let path = '/dashboard/submissions/'+uid 
+		this.props.history.push({pathname: path});
 	}
 
     render() {
@@ -172,7 +177,7 @@ class Submissions extends Component {
                     <div className="Title">
                         <h1>Submissions</h1>                    
                     </div>
-                    <div className="ConTable">
+                    <div className="SubTable">
                         <Paper className={classes.root}>
                             <div className={classes.tableWrapper}>
                                 <Table className={classes.table}>
@@ -182,6 +187,7 @@ class Submissions extends Component {
                                         <TableCell align="right">Subject ID</TableCell>
                                         <TableCell align="right">Title</TableCell>
                                         <TableCell align="right">Status</TableCell>
+                                        <TableCell align="right">Change Status</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -191,6 +197,11 @@ class Submissions extends Component {
                                         <TableCell align="right">{row.SID}</TableCell>
                                         <TableCell align="right">{row.TT}</TableCell>
                                         <TableCell align="right">{row.SS}</TableCell>
+                                        <TableCell align="right">
+										<article onClick={() => this.clickedHandler(row.ID)}>
+											<p className="changeClick" >Change</p>
+										</article>	
+									</TableCell>
                                     </TableRow>
                                     ))}
 

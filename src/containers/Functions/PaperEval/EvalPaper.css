@@ -1,0 +1,40 @@
+.PaperView{
+    margin-bottom: 25px;
+}
+
+.PLabel {
+    font-weight: bold;
+    font-size: 16px;
+    display: block;
+    width: 30%;
+    /* margin-right: 10px; */
+    color: rgb(2, 61, 32);
+}
+
+.rowIN {
+    width: 100%;
+    margin: 15px 15px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.Title2 {
+    height: 30px;
+    text-align: center;
+    align-content: center;
+    /* padding: 0 25px; */
+    margin: 35px 105px 0 105px;
+    color: #22134e;
+    font-weight: bold;
+    font-size: 24px;
+    border-bottom: 5px solid #423a3d;
+    width: 80%;
+}
+
+.RoleStyle{
+    width: 700px;
+    justify-content: center;
+    text-align: center;
+    margin: 0 30%;
+}
