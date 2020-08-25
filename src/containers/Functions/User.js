@@ -149,7 +149,7 @@ class User extends Component {
                         {redirect}
                         {details}
                     </div>
-                    <div className="RoleStyle">
+                    <div >
                         <form onSubmit={this.saveDataHandler} >
                             {form}
                             <button className="CB" disabled={!this.state.formIsValid} >Change</button>

@@ -116,6 +116,7 @@ select {
         display: flex;
         flex-flow: row wrap;
         justify-content: center;
+        margin-right: 100px;
     }
 
     .ClearFlex {
@@ -135,7 +136,7 @@ select {
     }
     
     .InputElement {
-        width: 75%;
+        width: 200px;
     }
 
     .ClearWidth {

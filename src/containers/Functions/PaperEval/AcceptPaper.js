@@ -31,6 +31,9 @@ class AcceptPaper extends Component {
         Data:null,
         submitted: false,
         formIsValid: false,
+        Completeness:null,
+        SubKnowledge:null,
+        Comments:'',
     }
 
     componentDidMount() {
@@ -44,6 +47,19 @@ class AcceptPaper extends Component {
             .then( response => {                
                 this.setState({Data:response.data.submission[0]})
                 console.log(this.state.Data)
+                let url = "ratings/" + this.props.match.params.sid;
+                axios.get(url, {headers: {Authorization: token}} )
+                    .then( response => {                
+                        this.setState({Completeness:response.data.rating.completeness})
+                        this.setState({SubKnowledge:response.data.rating.subject_knowledge})
+                        this.setState({Comments:response.data.rating.comments})
+
+                        console.log(this.state.Comments);
+                        
+                    }).catch(err => {
+                        console.log(err);
+                    });
+
                 
             }).catch(err => {
                 console.log(err);
@@ -113,6 +129,9 @@ class AcceptPaper extends Component {
                     <div  className="Name">
                         <h1>{data.title }</h1>
                         <h1>Subject ID: {data.subject_id}</h1>
+                        <h1>Completenes: {this.state.Completeness}</h1>
+                        <h1>Subject Knowledge: {this.state.SubKnowledge}</h1>
+                        <h1>Comments: {this.state.Comments[0]}</h1>
                         <h1>Current Status: {data.status}</h1>
                     </div>
                 </Aux>

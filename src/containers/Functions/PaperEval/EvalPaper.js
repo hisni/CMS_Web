@@ -7,7 +7,7 @@ import { Redirect } from 'react-router-dom';
 import './EvalPaper.css';
 import Aux from '../../../hoc/Auxiliary/Auxiliary';
 // import Input from '../../../components/UI/Input/Input';
-import { updateObject, checkValidity } from '../../../shared/utility';
+// import { updateObject, checkValidity } from '../../../shared/utility';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import ViewPaper from '../../../components/ViewPaper/ViewPaper';
 
