@@ -21,7 +21,8 @@ class MyPapers extends Component {
 
         axios.get(url, {headers: {Authorization: token}} )
         .then( response => {                
-            console.log(response.data.submissions[0].file); 
+            console.log(response.data); 
+            this.setState({Data:response.data.submissions[0]})
             this.setState({filePath:response.data.submissions[0].file})
         }).catch(err => {
             console.log(err);
@@ -31,6 +32,7 @@ class MyPapers extends Component {
     render() {
 
         let paper = (<p>No Submissions</p>);
+        let details = null;
 
         if( this.state.filePath ){
             console.log(this.state.filePath);
@@ -38,6 +40,13 @@ class MyPapers extends Component {
                 <ViewPaper 
                     url={this.state.filePath}
                 />
+            )
+
+            details = (
+                <div  className="Name">
+                    <h1>Title: {this.state.Data.title }</h1>
+                    <h1>Status: {this.state.Data.status }</h1>
+                </div>
             )
         }
 
@@ -48,6 +57,7 @@ class MyPapers extends Component {
                         <div className="Title">
                             <h1>My Submission Paper</h1>                    
                         </div>
+                        {details}
                         <div>
                             {paper}
                         </div>

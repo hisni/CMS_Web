@@ -106,6 +106,8 @@ class Profile extends Component {
         Data:null,
         page:0,
 		rowsPerPage:5,
+		isFirst: true,
+		SearchValue:'',
     }
 
     componentDidMount(){
@@ -115,17 +117,21 @@ class Profile extends Component {
             token: this.props.token
         };
 
-        axios.get( 'test/users',tokenData )
-        .then( response => {
-            const fetchedPosts = [];
-            for(let key in response.data.result){
-                fetchedPosts.push({
-                    ...response.data.result[key],
-                });
-            }
-            this.setState({Data: fetchedPosts});
-            // console.log(response.data.result);
-        } );
+		if( this.state.isFirst ){
+			axios.get( 'test/users',tokenData )
+			.then( response => {
+				const fetchedPosts = [];
+				for(let key in response.data.result){
+					fetchedPosts.push({
+						...response.data.result[key],
+					});
+				}
+				this.setState({Data: fetchedPosts});
+				this.setState({isFirst: false});
+				// console.log(response.data.result);
+			} );
+		}	
+			
     }
 
     handleChangePage = (event, newPage) => {
@@ -140,6 +146,23 @@ class Profile extends Component {
 	clickedHandler = (uid)=>{
 		let path = '/dashboard/users/'+uid 
 		this.props.history.push({pathname: path});
+	}
+
+	changeHandler = (event)=>{
+		this.setState({SearchValue:event.target.value})
+	}
+
+	searchHandler = ()=>{
+		
+		let token =  "Bearer " + this.props.token;
+		let url = 'userdata/name/' + this.props.SearchValue;
+
+		axios.get( url , {headers: {Authorization: token}} )
+		.then( response => {
+			console.log(response);
+		} ).catch(err => {
+			console.log(err);
+		});
 	}
     
     render(){
@@ -172,6 +195,16 @@ class Profile extends Component {
 			<UserLayout>
 				<div className="Title">
 					<h1>Users</h1>                    
+				</div>
+				<div className="SearchBar">
+					<form  onSubmit={this.searchHandler}>
+						<input
+							className='InEl'
+							type='text'
+							value={this.state.SearchValue}
+							onChange={this.changeHandler} />
+						<button className="CB" >Search</button>
+					</form>
 				</div>
 				<div className="UsTable">
 					<Paper className={classes.root}>

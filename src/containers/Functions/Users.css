@@ -38,3 +38,21 @@
     text-decoration: underline;
     cursor: pointer;
 }
+
+.SearchBar {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    /* margin-right: 100px; */
+}
+
+.InEl{
+    width: 230px;
+    color: #72f1b6;
+    background-color: rgb(2, 61, 32);
+    height: 30px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}

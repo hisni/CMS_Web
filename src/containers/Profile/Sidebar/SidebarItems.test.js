@@ -21,7 +21,7 @@ describe( '<NavigationItems />', ()=>{
         expect(wrapper.find(SidebarItem)).toHaveLength(4);
     });
 
-    it('It should render 6 <SidebarItems /> elements', ()=>{
+    it('It should render 5 <SidebarItems /> elements', ()=>{
         wrapper.setProps({role: "Reviewer"});
         expect(wrapper.find(SidebarItem)).toHaveLength(5);
     });
@@ -41,8 +41,8 @@ describe( '<NavigationItems />', ()=>{
         expect(wrapper.contains(<SidebarItem link="/dashboard/conferences" >Past Conferences</SidebarItem>)).toEqual(true);
     });
 
-    it('Should an exact "Past Conferences" Button', ()=>{
-        wrapper.setProps({role: "Reviwer"});
+    it('Should an exact "Review Papers" Button', ()=>{
+        wrapper.setProps({role: "Reviewer"});
         expect(wrapper.contains(<SidebarItem link="/dashboard/review" >Review Papers</SidebarItem>)).toEqual(true);
     });
 
