@@ -128,7 +128,7 @@ class Profile extends Component {
 				}
 				this.setState({Data: fetchedPosts});
 				this.setState({isFirst: false});
-				// console.log(response.data.result);
+				console.log(this.state.Data);
 			} );
 		}	
 			
@@ -150,26 +150,51 @@ class Profile extends Component {
 
 	changeHandler = (event)=>{
 		this.setState({SearchValue:event.target.value})
+		console.log(event.target.value);
 	}
 
-	searchHandler = ()=>{
-		
-		let token =  "Bearer " + this.props.token;
-		let url = 'userdata/name/' + this.props.SearchValue;
+	searchHandler = (event) => {
 
-		axios.get( url , {headers: {Authorization: token}} )
-		.then( response => {
-			console.log(response);
-		} ).catch(err => {
-			console.log(err);
-		});
+		event.preventDefault();
+
+		let token =  "Bearer " + this.props.token;
+		let url = 'userdata/name/' + this.state.SearchValue;
+
+		if( this.state.SearchValue !== '' ){
+			axios.get( url , {headers: {Authorization: token}} )
+			.then( response => {
+				this.setState({Data: response.data.result});
+				console.log(this.state.Data);
+			} ).catch(err => {
+				console.log(err);
+			});
+		}else{
+
+			const tokenData = {
+				token: this.props.token
+			};
+
+			axios.get( 'test/users',tokenData )
+			.then( response => {
+				const fetchedPosts = [];
+				for(let key in response.data.result){
+					fetchedPosts.push({
+						...response.data.result[key],
+					});
+				}
+				this.setState({Data: fetchedPosts});
+				this.setState({isFirst: false});
+				console.log(this.state.Data);
+			} );
+		}
+
+		
 	}
     
     render(){
 		var rows = [];
         if( this.state.Data ){
             this.state.Data.map(post => {
-
 				if( post.user_role !== "SuperAdmin"){
 					rows.push({
 						ID: post.id,
@@ -184,8 +209,8 @@ class Profile extends Component {
                 return null;
             });
 		}
-		
-		// rows = rows.slice(-25);
+
+		console.log(rows);
 
 		const emptyRows = this.state.rowsPerPage - Math.min(this.state.rowsPerPage, rows.length - this.state.page * this.state.rowsPerPage);
 
@@ -197,7 +222,7 @@ class Profile extends Component {
 					<h1>Users</h1>                    
 				</div>
 				<div className="SearchBar">
-					<form  onSubmit={this.searchHandler}>
+					<form onSubmit={this.searchHandler}>
 						<input
 							className='InEl'
 							type='text'
