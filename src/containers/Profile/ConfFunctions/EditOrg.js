@@ -186,7 +186,7 @@ class EditOrg extends Component {
                 <form onSubmit={this.submitHandler} >
                     {formEL}
                     <div className="Input">
-                        <label className="Label">Date</label>
+                        <label className="Label">Image</label>
                         <input 
                             type="file"
                             onChange={this.inputPhotoChangedHandler}
